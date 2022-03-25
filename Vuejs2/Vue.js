@@ -13,6 +13,7 @@ const Gestionfilm = {
         
     },
     mounted(){
+    
     }
 }
 
@@ -35,6 +36,19 @@ const Parameter = {
     }
 }
 
+const OneSerie = {
+    template: '#oneSerie', 
+    name: 'OneSerie',
+    data: () =>{
+        return {
+            idSerie:null
+        }
+    },
+    mounted(){
+        this.idSerie = this.$route.params.id
+    }
+}
+
 
 const Home = {
     template: '#home', 
@@ -42,7 +56,8 @@ const Home = {
     data: () => {
         return {
             name: "",
-            statu: ""
+            statu: "",
+            allSerie:{}
         }
     }, 
     computed: {
@@ -56,13 +71,17 @@ const Home = {
     mounted(){
         this.name = this.$root.nom
         this.statu = this.$root.statu
+        // Recuperation des données 
+        axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/serieName.php'})
+       .then(response => (this.allSerie = response.data));
     }
 }
 
 const routes = [
     {path: '/', component: Home},
-    {path: '/Parameter', component: Parameter},
-    {path: '/Parameter/Gestionfilm', component: Gestionfilm},
+    {path: '/Parameter', name:"Parameter", component: Parameter},
+    {path: '/Parameter/Gestionfilm', name:"Gestionfilm", component: Gestionfilm},
+    {path: '/Home/OneSerie/:id', name:"OneSerie",  component: OneSerie},
 ]
 
 const router = new VueRouter({

@@ -33,6 +33,10 @@ $(document).ready(function(){
        $(".addSerie_contain").css("display", "flex");
     });
 
+    $("#_addSaison").on("click", function(){
+        $(".addSaison_contain").css("display", "flex");
+    })
+
     $("#parameter").on("click", function(){
         $(".show").hide()
         $(".liClicked").removeClass("liClicked")

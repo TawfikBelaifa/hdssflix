@@ -25,10 +25,13 @@ body{
 
 @import url('./Membre.less');
 @import url('./Parameter.less');
+@import url('./Home.less');
 
 /* CSS Files Importation */
 
 @import url('./netflixanimation.css');
 
-
+a{
+    text-decoration: none;
+}
 

@@ -46,6 +46,16 @@
             move_uploaded_file($tmp_name, $chemindef);
         }
 
+        public function getSerieName(){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT * FROM serie ORDER BY id DESC";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
+
         public function getID(){
 
         }

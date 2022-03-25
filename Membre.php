@@ -23,6 +23,7 @@
                     <router-link to="/" ><li ><img src="./img/redmenu.png" alt=""></li></router-link>
                     <router-link to="/" ><li><img src="./img/search.png" alt=""></li></router-link>
                     <router-link to="/Parameter" ><li><img src="./img/settings.png" alt=""></li></router-link>
+                    
                 </ul>
             </nav>
         </div>
@@ -49,6 +50,7 @@
         include "./Composant/parameter.html";
         include "./Composant/netflix-animation.html";
         include "./Composant/home.html";
+        include "./Composant/oneSerie.html";
     ?>
 
 

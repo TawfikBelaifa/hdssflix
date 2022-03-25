@@ -1,10 +1,16 @@
 <script type="text/x-template" id="home">
-    <div class="containHomeApp">
-        <div class="titleTop">Dernier film Ajouter</div>
-        <div class="afficheSerie">
-            <div class="nameSerie">Suits : Avocats sur mesure</div>
-            <div class="imgAffiche">
-                <img src="./imgSerie/52/images.jpg" alt="" srcset="">
+    <div class="containHomeApp" >
+        <div class="titleTop">Dernieres Séries Ajoutées</div>
+        <div class="containerfilm">
+            <div v-for="serie in allSerie">
+                <router-link :to="{ name: 'OneSerie', params: { id: serie.id } }" >
+                <div class="afficheSerie">
+                    <div class="imgAffiche">
+                        <img v-bind:src="'./imgSerie/'+serie.id+'/'+serie.img" alt="" srcset="">
+                    </div>
+                    <div class="nameSerie">{{serie.titre}}</div>
+                </div>
+                </router-link>
             </div>
         </div>
     </div>

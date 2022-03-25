@@ -18,7 +18,7 @@
                 </ul>
                 <ul id="serie_fonction">
                     <li id="_addSerie">Ajouter série</li>
-                    <li>Ajouter saison</li>
+                    <li id="_addSaison">Ajouter saison</li>
                     <li>Ajouter épisode</li>
                     <li>Masquer Serie</li>
                 </ul>
@@ -33,8 +33,11 @@
                 </ul>
             </div>
             <div class="box_parameter_right">
-                <div class="addSerie_contain">
-                    <div class="facultatTitle">Ajouter New Serie</div>
+
+
+                <!-- Container New serie -->
+                <div class="addSerie_contain newAdd">
+                    <div class="facultatTitle">Nouvelle Serie</div>
                     <form action="" ENCTYPE="multipart/form-data" class="allDataSerie">
                         <div class="top_adsc">
                                 <div class="left_adsc">
@@ -75,6 +78,17 @@
                         <div class="echec"></div>
                     </div>
                 </div>
+
+                <!-- Container New saison -->
+                <div class="addSaison_contain newAdd">
+                    <select name="serieChoose" class="genre dataSaison">
+                        <option value="">Serie</option>
+                        <option value="Action">Action</option>
+                        <option value="scienceFiction">Science Fiction</option>
+                        <option value="Drame">Drame</option>
+                    </select>
+                </div>
+
             </div>
         </div>
     </div>
