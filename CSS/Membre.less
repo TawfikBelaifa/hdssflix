@@ -1,0 +1,54 @@
+body{
+    background-color: var(--palette-bd-color);
+    .header{
+        font-family: var(--fontFamilly);
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--palette-text-color);
+        background-color: var(--palette-head-color);
+        padding: 0 20px;
+        .right{
+            width: 100px;
+
+            ul{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+            }
+        
+            li{
+                padding: 10px 0;
+                img{
+                    width: 20px;
+                }
+            }
+        
+            a{
+                text-decoration: none;
+            }
+        } 
+        
+        .left{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .statu{
+                background-color: var(--palette-bgc-color);
+                padding: 5px 30px;
+                border-radius: 50px;
+                font-weight: bolder;
+            }
+        }
+    }
+
+    #containVue{
+        color: var(--palette-text-color);
+    }
+}

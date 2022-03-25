@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    let i = 2
     // Varibles
     let state = false
     const flip = document.querySelector('.inner__form'),
@@ -18,6 +18,62 @@ $(document).ready(function(){
             }
     }
 
+    $(".addSerie_contain").hide()
+    $(".box_parameter_center").hide();
+    $(".box_parameter_center ul").hide();
+    $("#addSerie_contain").hide()
+    $(".msgSerieAdd").hide()
+    $(".msgSerieAdd .sucess").hide()
+    $(".msgSerieAdd .echec").hide()
+
     //UI/UX Interaction
-    $(".switchBtn").on("click",SwitchUILogin)
+    $(".switchBtn").on("click",SwitchUILogin);
+    
+    $("#_addSerie").on("click", function(){
+       $(".addSerie_contain").css("display", "flex");
+    });
+
+    $("#parameter").on("click", function(){
+        $(".show").hide()
+        $(".liClicked").removeClass("liClicked")
+        $(".box_parameter_center").show();
+        $("#parameter_fonction").show();
+        $("#parameter_fonction").addClass("show");
+        $("#parameter").addClass("liClicked")
+    })
+
+    $("#serie").on("click", function(){
+        $(".show").hide()
+        $(".liClicked").removeClass("liClicked")
+        $(".box_parameter_center").show();
+        $("#serie_fonction").show();
+        $("#serie_fonction").addClass("show");
+        $("#serie").addClass("liClicked")
+    })
+
+    $("#film").on("click", function(){
+        $(".show").hide()
+        $(".liClicked").removeClass("liClicked")
+        $(".box_parameter_center").show();
+        $("#movie_fonction").show();
+        $("#movie_fonction").addClass("show");
+        $("#film").addClass("liClicked")
+    })
+
+    $("#reservation").on("click", function(){
+        $(".show").hide()
+        $(".liClicked").removeClass("liClicked")
+        $(".box_parameter_center").show();
+        $("#reservation_fonction").show();
+        $("#reservation_fonction").addClass("show");
+        $("#reservation").addClass("liClicked")
+    })
+
+
+    $('#btnAddActer').on('click', function(){
+        console.log("click")
+		$('.lcas').append('<input type="texte" name="acterSerie'+i+'" placeholder="Acteur '+i+'" class="acteur dataSerie">')
+		i += 1
+	})
+
 })

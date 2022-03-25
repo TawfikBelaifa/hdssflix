@@ -1,0 +1,249 @@
+.parameter_Contain{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    font-family: var(--fontFamilly);
+    padding: 40px 20px;;
+    .box_parameter{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        border-top: 1px solid#696969;
+        background-color: #2a2a2a;
+        .box_parameter_left{
+            display: block;
+            width: 260px;
+            height: 100%;
+            border-right: 1px solid #696969;
+
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                li{
+                    font-size: 23px;
+                    padding: 10px 13px;
+                    text-align: left;
+                    cursor: pointer;
+                    box-sizing: border-box;
+
+                    
+                }
+
+                li:hover{
+                    background-color: #696969;
+                    border-left: 3px solid var(--palette-bgc-color);
+                }
+            }
+        }
+
+        .box_parameter_center{
+            display: none;
+            width: 260px;
+            height: 100%;
+            border-right: 1px solid #696969;
+            ul{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                display: none;
+                li{
+                    font-size: 23px;
+                    padding: 10px 13px;
+                    text-align: left;
+                    cursor: pointer;
+                    box-sizing: border-box;
+
+                    
+                }
+
+                li:hover{
+                    background-color: #696969;
+                    border-left: 3px solid var(--palette-bgc-color);
+                }
+            }
+        }
+
+        .box_parameter_right{
+            input, select, option{
+                margin: 10px 10px;
+                width: 200px;
+                padding: 13px 20px;
+                border: 1px solid #696969;
+                color: #fff;
+                border-radius: 5px;
+                background-color: transparent;
+                font-family: var(--fontFamilly);
+                font-size: 20px;
+            }
+
+            textarea{
+                margin: 10px 10px;
+                width: 500px;
+                height: 165px;
+                padding: 13px 20px;
+                border: 1px solid #696969;
+                color: #fff;
+                border-radius: 5px;
+                background-color: transparent;
+                font-family: var(--fontFamilly);
+                font-size: 20px;
+            }
+
+            select > option{
+                background-color: #000;
+                border-radius: 0;
+                font-family: var(--fontFamilly);
+                font-size: 20px;
+            }
+            .addSerie_contain{
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px 50px;
+                .facultatTitle{
+                    font-family: var(--fontFamilly);
+                    color: var(--palette-bgc-color);
+                    font-size: 30px;
+                    padding: 10px;
+                }
+                .top_adsc{
+                    display: flex;
+                    .left_adsc{
+                        display: block;
+
+                        .titleSerie{
+                            input{
+                                width: 500px;
+                                padding: 13px 20px;
+                                border: 1px solid #696969;
+                                color: #fff;
+                                border-radius: 5px;
+                                background-color: transparent;
+                            }
+                        }
+                        .acterSerie{
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 245px;
+                            
+                            img{
+                                position: absolute;
+                                top: 18px;
+                                left: 420px;
+                                width: 30px;
+                                height: 30px;
+                                cursor: pointer;
+                            }
+
+                            img:hover{
+                                opacity: .5;
+                            }
+
+                            .lcas{
+                                input{
+                                    width: 400px;
+                                }
+                            }
+                        }
+                    }
+                    .right_adsc{
+                        display: flex;
+                        flex-direction: column;
+                        .imageSerie{
+                            background-color: aqua;
+                            visibility: hidden;
+                        }
+                        .btnAddImg{
+                            cursor: pointer;
+                            height: 100%;
+                            width: 100%;
+                            text-align: center;
+                            padding: 13px 20px;
+                            background-color: rgba(128,128,128,.3);
+                        }
+                        label[for=imageSerie]{
+                            margin: 10px 10px;
+                            width: 200px;
+                            border: 1px solid #696969;
+                            color: #fff;
+                            border-radius: 5px;
+                            background-color: transparent;
+                            font-family: var(--fontFamilly);
+                            font-size: 20px;
+                        }
+                    }
+                }
+                .bottom_adsc{
+                    display: flex;
+                    input{
+                        margin: 10px 10px;
+                        width: 200px;
+                        padding: 13px 20px;
+                        cursor: pointer;
+                        background-color: var(--palette-bgc-color);
+                        color: #fff;
+                        font-family: var(--fontFamilly);
+                        font-weight: bolder;
+                        font-size: 30px;
+                    }
+
+                    button:hover{
+                        opacity: .5;
+                    }
+
+                    #btnAddSerie{
+                        width: 500px;
+                        border: none;
+                    }
+
+                    .btnReset{
+                        background-color: transparent;
+                        border: 1px solid #696969;
+                        background-color: rgba(255,255,255,.3);
+                    }
+                }
+                .msgSerieAdd{
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 50px;
+                    background-color: rgba(0, 255, 0, .2);
+                    div{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        font-family: var(--fontFamilly);
+                        font-size: 15px;
+                        border: none;
+                        border-radius: 3px;
+                        height: 100%;
+                    }
+                    .sucess{
+                        color: aquamarine;
+                    }
+                    .echec{
+                        color: rgb(139, 33, 33);
+                    }
+                }
+            }   
+        }
+    }
+}
+
+
+
+
+.liClicked{
+    border-left: 3px solid var(--palette-bgc-color); 
+    opacity: .5;
+    font-weight: bolder;
+}

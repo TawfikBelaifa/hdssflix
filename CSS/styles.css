@@ -1,0 +1,34 @@
+/* FONT IMPORTATION */
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+
+/* LESS Style Importation */
+
+:root {
+    --palette-bgc-color: #E50914;
+    --palette-text-color:#fff;
+    --palette-bd-color:#292929;
+    --palette-head-color:#000;
+
+    --fontFamilly : 'Hubballi', cursive;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* LESS Files Importation */
+
+@import url('./Membre.less');
+@import url('./Parameter.less');
+
+/* CSS Files Importation */
+
+@import url('./netflixanimation.css');
+
+
+

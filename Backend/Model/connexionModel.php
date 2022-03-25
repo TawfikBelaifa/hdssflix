@@ -1,11 +1,10 @@
 <?php
-    function ConnexionBDD(){
-        $serveur='localhost';
-        $db='hdssflix';
-        $utilisateur='root';
-        $mot_passe='';
-        $connexion = new PDO("mysql:host=$serveur;dbname=$db",$utilisateur,$mot_passe);
-        if($connexion) {
+
+    class Connexion {
+        public function __construct(){}
+        
+        public function getBDD(){
+            $connexion = new PDO("mysql:host=localhost;dbname=hdssflix",'root','');
             return $connexion;
         }
     }

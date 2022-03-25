@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Varela+Round&display=swap');
+
+
+.container {
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+}
+
+.name-app{
+  position: fixed;
+  top: 20px;
+  left: 50px;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 20px;
+  margin-top: 7px;
+  letter-spacing: 15px;
+  color: #e50815;
+}
+
+.logo {
+  position: relative;
+  overflow: hidden;
+  height: 520px;
+  width: 360px;
+}
+.logo .uno, .logo .due, .logo .tre{
+  position: absolute;
+  background: #b00612;
+  height: 100%;
+  width: 120px;
+}
+.logo .uno {
+  left: 0;
+  opacity:1;
+}
+.logo .due {
+  left: 0;
+  background: #e50815;
+  box-shadow: 0 0 20px black;
+  opacity: 1;
+  /* transform: skewX(25.4deg); */
+  transform-origin: top left;
+  z-index: 1;
+  height: 120px;
+  width: 100%;
+  top: calc(50% - 60px);
+}
+.logo .tre {
+  right: 0;
+  opacity: 1;
+}
+
+
+
+.logo::before {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: block;
+  background: transparent;
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  content: "";
+  transform: translateX(-50%);
+  height: 30px;
+  width: 120px;
+  z-index: 10;
+}
+
+@keyframes uno {
+  0% {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes due {
+  0% {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes tre {
+  0% {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes scaleup {
+  80% {
+    opacity: 0;
+    transform: scale(10);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* #replay {
+  display: none;
+}
+#replay:checked ~ .control-button.--play {
+  display: none;
+} */
+/*#replay:checked ~ */ .control-button.--reload {
+  display: block;
+  animation: 3s 3.5s fadein ease-out both;
+}
+/* #replay:checked ~ */ .logo { 
+  animation: 2s 1.5s scaleup ease-in both;
+}
+/*#replay:checked ~ */ .logo > .uno {
+  animation: 0.4s uno both;
+}
+/*#replay:checked ~ */ .logo > .due {
+  animation: 0.4s 0.4s due both;
+}
+/*#replay:checked ~ */ .logo > .tre {
+  animation: 0.4s 0.8s tre both;
+}
+
+.control-button {
+  position: absolute;
+  display: block;
+  animation: 0.8s fadein ease-out both;
+  color: white;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 45px;
+  font-weight: bold;
+  letter-spacing: 16px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  z-index: 2;
+}
+.control-button.--reload {
+  display: none;
+}
+.control-button__sub {
+  color: cadetblue;
+  font-size: 20px;
+  letter-spacing: 8px;
+  text-transform: lowercase;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
