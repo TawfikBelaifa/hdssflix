@@ -28,6 +28,31 @@
             }
         }
 
+        public function addSaison($serie, $libelle){
+            $os = new Serie();
+            
+            if($connexion = ($os->getBDD())){
+                $idSerie = $os->getSerieId($serie);
+                $serie=$connexion->quote($serie);
+                $libelle=$connexion->quote($libelle);
+                $requete="INSERT INTO saison (id,id_serie,libelle) VALUES ('','$idSerie',$libelle)";
+                $insertion=$connexion->exec($requete);
+            }  
+        }
+
+
+        // GETTERS 
+
+        public function getSerieId($name){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT id FROM serie WHERE titre='$name'";
+                $result=$connexion->query($recherche);
+                $tab=$result->fetch();
+                return $tab['id'];
+            }
+        }
+
         public function addRepository(){
             $os = new Serie();
             if($connexion = ($os->getBDD())){

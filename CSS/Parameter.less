@@ -68,6 +68,42 @@
         }
 
         .box_parameter_right{
+
+            .msgAdd{
+                width: 95%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+                background-color: rgba(0, 255, 0, 0.05);
+                margin: 20px 10px;
+                
+                div{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    font-family: var(--fontFamilly);
+                    font-size: 15px;
+                    border: none;
+                    border-radius: 3px;
+                    height: 100%;
+                }
+                .sucess{
+                    color: aquamarine;
+                }
+                .echec{
+                    color: rgb(139, 33, 33);
+                }
+            }
+
+            .facultatTitle{
+                font-family: var(--fontFamilly);
+                color: var(--palette-bgc-color);
+                font-size: 30px;
+                padding: 10px;
+            }
+
             input, select, option{
                 margin: 10px 10px;
                 width: 200px;
@@ -99,18 +135,44 @@
                 font-family: var(--fontFamilly);
                 font-size: 20px;
             }
+
+            .bottom_adsc{
+                display: flex;
+                input{
+                    margin: 10px 10px;
+                    width: 200px;
+                    padding: 13px 20px;
+                    cursor: pointer;
+                    background-color: var(--palette-bgc-color);
+                    color: #fff;
+                    font-family: var(--fontFamilly);
+                    font-weight: bolder;
+                    font-size: 30px;
+                }
+
+                button:hover{
+                    opacity: .5;
+                }
+
+                #btnAddSerie{
+                    width: 500px;
+                    border: none;
+                }
+
+                .btnReset{
+                    background-color: transparent;
+                    border: 1px solid #696969;
+                    background-color: rgba(255,255,255,.3);
+                }
+            }
+
+            // ADD NEW SERIE
             .addSerie_contain{
                 display: none;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
                 padding: 20px 50px;
-                .facultatTitle{
-                    font-family: var(--fontFamilly);
-                    color: var(--palette-bgc-color);
-                    font-size: 30px;
-                    padding: 10px;
-                }
+
                 .top_adsc{
                     display: flex;
                     .left_adsc{
@@ -180,61 +242,21 @@
                         }
                     }
                 }
-                .bottom_adsc{
-                    display: flex;
-                    input{
-                        margin: 10px 10px;
-                        width: 200px;
-                        padding: 13px 20px;
-                        cursor: pointer;
-                        background-color: var(--palette-bgc-color);
-                        color: #fff;
-                        font-family: var(--fontFamilly);
-                        font-weight: bolder;
-                        font-size: 30px;
-                    }
+                
+                
+            }
+            
+            // ADD NEW SAISON 
+            .addSaison_contain{
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                padding: 20px 50px;
 
-                    button:hover{
-                        opacity: .5;
-                    }
-
-                    #btnAddSerie{
-                        width: 500px;
-                        border: none;
-                    }
-
-                    .btnReset{
-                        background-color: transparent;
-                        border: 1px solid #696969;
-                        background-color: rgba(255,255,255,.3);
-                    }
+                .dataSaison option{
+                    width: 300px;
                 }
-                .msgSerieAdd{
-                    width: 50%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 50px;
-                    background-color: rgba(0, 255, 0, .2);
-                    div{
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        width: 100%;
-                        font-family: var(--fontFamilly);
-                        font-size: 15px;
-                        border: none;
-                        border-radius: 3px;
-                        height: 100%;
-                    }
-                    .sucess{
-                        color: aquamarine;
-                    }
-                    .echec{
-                        color: rgb(139, 33, 33);
-                    }
-                }
-            }   
+            }
         }
     }
 }

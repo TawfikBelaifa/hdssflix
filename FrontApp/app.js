@@ -22,18 +22,20 @@ $(document).ready(function(){
     $(".box_parameter_center").hide();
     $(".box_parameter_center ul").hide();
     $("#addSerie_contain").hide()
-    $(".msgSerieAdd").hide()
-    $(".msgSerieAdd .sucess").hide()
-    $(".msgSerieAdd .echec").hide()
+    $(".msgAdd").hide()
+    $(".msgAdd .sucess").hide()
+    $(".msgAdd .echec").hide()
 
     //UI/UX Interaction
     $(".switchBtn").on("click",SwitchUILogin);
     
     $("#_addSerie").on("click", function(){
-       $(".addSerie_contain").css("display", "flex");
+        $(".newAdd").css("display", "none")
+        $(".addSerie_contain").css("display", "flex");
     });
 
     $("#_addSaison").on("click", function(){
+        $(".newAdd").css("display", "none")
         $(".addSaison_contain").css("display", "flex");
     })
 

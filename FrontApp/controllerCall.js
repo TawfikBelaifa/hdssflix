@@ -37,40 +37,6 @@ $(document).ready(function(){
     // Add new serie
     $("#btnAddSerie").on("click", function(e){
         e.preventDefault()
-        var donnee = $(".dataSerie")
-        console.log(donnee)
-        console.log($(donnee).serializeArray())
-         /* $.post(
-            './Backend/Action/serieAction.php',
-            $(".dataSerie").serializeArray(),
-            function(reponse){
-                if(reponse == "1"){
-                    $(".msgSerieAdd").show()
-                    $(".msgSerieAdd .sucess").show()
-                    $(".msgSerieAdd .sucess").html("Serie Ajouter avec succés")
-                    $(".dataSerie").val("")
-                }
-            }
-        ) */
-
-       /* $.ajax({
-            url:"./Backend/Action/serieAction.php",
-            type: "POST",
-            dataType: "JSON",
-            data: new FormData(donnee),
-            processData: false,
-            contentType: false,
-            success: function (data, status)
-            {
-                console.log(data)
-            },
-            error: function (xhr, desc, err, data)
-            {
-                console.log(data)
-    
-            }
-        }); */
-
         $.ajax({
             url: './Backend/Action/serieAction.php',
             type: 'POST',
@@ -81,14 +47,29 @@ $(document).ready(function(){
             function(reponse){
                 $(".dataSerie").val("")
                 if(reponse == "1"){
-                    $(".msgSerieAdd").show()
-                    $(".msgSerieAdd .sucess").show()
-                    $(".msgSerieAdd .sucess").html("Serie Ajouter avec succés")
+                    $(".msgAdd").show()
+                    $(".msgAdd .sucess").show()
+                    $(".msgAdd .sucess").html("Serie Ajouter avec succés")
                     
                 }
             }
         });
     })
     
+    // Add new saison
+    $("#btnAddSaison").on("click", function(){
+        console.log("click")
+        console.log($('.dataSaison').serializeArray(),)
+        $.post(
+            './Backend/Action/addSaison.php',
+            $('.dataSaison').serializeArray(),
+            function(reponse){
+                $(".msgAdd").show()
+                $(".msgAdd .sucess").show()
+                $(".msgAdd .sucess").html("Saison Ajoutée avec succés")
+            }
+        )
+    })
+
 
 })

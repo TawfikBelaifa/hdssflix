@@ -22,7 +22,7 @@ const Parameter = {
     name: 'Parameter',
     data: () => {
         return {
-            
+            serieList:null,
         }
     }, 
     computed: {
@@ -32,7 +32,8 @@ const Parameter = {
         
     },
     mounted(){
-
+        axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/serieName.php'})
+        .then(response => (this.serieList = response.data));
     }
 }
 

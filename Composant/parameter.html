@@ -73,7 +73,7 @@
                             <input type="submit" id="btnAddSerie" value="Ajouter"> <input type="reset" class="btnReset" value="Annuler">
                         </div>
                     </form>
-                    <div class="msgSerieAdd">
+                    <div class="msgAdd">
                         <div class="sucess"></div>
                         <div class="echec"></div>
                     </div>
@@ -81,12 +81,22 @@
 
                 <!-- Container New saison -->
                 <div class="addSaison_contain newAdd">
-                    <select name="serieChoose" class="genre dataSaison">
-                        <option value="">Serie</option>
-                        <option value="Action">Action</option>
-                        <option value="scienceFiction">Science Fiction</option>
-                        <option value="Drame">Drame</option>
-                    </select>
+                    <div class="facultatTitle">Nouvelle Saison</div>
+                    <div class="info">
+                        <select name="serieChoose" class="serieChoose dataSaison">
+                            <option v-for="serie in serieList" :value="serie.titre">{{serie.titre}}</option>
+                        </select>
+                        <select name="saison" class="saison dataSaison">
+                            <option v-for="n in 30" v-bind:value="'Saison ' + n"> Saison {{n}}</option>
+                        </select>
+                    </div>
+                    <div class="bottom_adsc">
+                        <input type="submit" id="btnAddSaison" value="Ajouter"> <input type="reset" class="btnReset" value="Annuler">
+                    </div>
+                    <div class="msgAdd">
+                        <div class="sucess"></div>
+                        <div class="echec"></div>
+                    </div>
                 </div>
 
             </div>
