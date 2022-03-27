@@ -102,34 +102,34 @@
                 <!-- New episode -->
                 <div class="addEpisode_contain newAdd">
                     <div class="facultatTitle">Nouvel Episode</div>
-                    <form action="" ENCTYPE="multipart/form-data" class="allDataSerie">
+                    <form action="" ENCTYPE="multipart/form-data" class="allDataEpisode">
                         <div class="top_adsc">
                                 <div class="left_adsc">
                                     <div class="titleSerie">
-                                        <input type="text" name="titleSerie" id="titleSerie" class="tilte dataSerie" placeholder="Nom">
+                                        <input type="text" name="titleEpisode" id="titleEpisode" class="titleEpisode dataEpisode" placeholder="Nom">
                                     </div>
                                     <div>
                                         
                                     </div>
                                     <div class="resume">
-                                        <textarea name="resumeSerie" id="" cols="30" rows="10" class="resume dataSerie" placeholder="Résumé de la serie"></textarea>
+                                        <textarea name="resumeEpisode" id="" cols="30" rows="10" class="resume dataEpisode" placeholder="Résumé de la serie"></textarea>
                                     </div>
                                 </div>
                                 <div class="right_adsc">
-                                    <select name="genre" class="genre dataSerie">
+                                    <select name="genre" class="genre dataEpisode">
                                         <option v-for="serie in serieList" :value="serie.titre">{{serie.titre}}</option>
                                     </select>
-                                    <select name="genre" class="genre dataSerie">
+                                    <select name="saison" class="saison dataEpisode">
                                         <option value=""> Saison</option>
                                         <option v-for="n in 30" v-bind:value="'Saison ' + n"> Saison {{n}}</option>
                                     </select>
-                                    <select name="genre" class="genre dataSerie">
+                                    <select name="format" class="format dataEpisode">
                                         <option value=""> Format</option>
                                         <option value="Action">4K</option>
                                         <option value="scienceFiction">2K</option>
                                         <option value="Drame">HD</option>
                                     </select>
-                                    <select name="genre" class="genre dataSerie">
+                                    <select name="version" class="version dataEpisode">
                                         <option value=""> Version</option>
                                         <option value="Français">Français</option>
                                         <option value="Anglais">Anglais</option>
@@ -139,11 +139,11 @@
                                     <label for="imageSerie">
                                         <div class="btnAddImg">Video</div>
                                     </label>
-                                    <input type="file" name="imgSeries" id="imageSerie" class="imageSerie dataSerie">
+                                    <input type="file" name="imgSeries" id="imageSerie" class="imageSerie dataEpisode">
                                 </div>
                         </div>
                         <div class="bottom_adsc">
-                            <input type="submit" id="btnAddSerie" value="Ajouter"> <input type="reset" class="btnReset" value="Annuler">
+                            <input type="submit" id="btnAddEpisode" value="Ajouter"> <input type="reset" class="btnReset" value="Annuler">
                         </div>
                     </form>
                     <div class="msgAdd msgAddserie">
@@ -156,3 +156,4 @@
         </div>
     </div>
 </script>
+

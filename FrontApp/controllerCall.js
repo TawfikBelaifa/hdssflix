@@ -57,8 +57,6 @@ $(document).ready(function(){
     
     // Add new saison
     $("#btnAddSaison").on("click", function(){
-        console.log("click")
-        console.log($('.dataSaison').serializeArray(),)
         $.post(
             './Backend/Action/addSaison.php',
             $('.dataSaison').serializeArray(),
@@ -77,5 +75,26 @@ $(document).ready(function(){
                 
             }
         )
+    })
+
+    // Add new episode
+    $("#btnAddEpisode").on("click", function(e){
+        e.preventDefault()
+        $.ajax({
+            url: './Backend/Action/serieAction.php',
+            type: 'POST',
+            data: new FormData($(".allDataEpisode")[0]), 
+            cache: false,
+            contentType: false,
+            processData: false,
+            function(reponse){
+                $(".dataSerie").val("")
+                if(reponse == "1"){
+                    $(".msgAddserie").hide()
+                    $(".msgAddserie .sucess").show()
+                    $(".msgAddserie .sucess").html("Serie Ajoutée avec succés")
+                }
+            }
+        });
     })
 })
