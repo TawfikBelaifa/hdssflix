@@ -10,6 +10,8 @@
             return $connexion;
         }
 
+        // INSERTION
+
         public function addSerie($titre,$acteur,$resume,$genre,$realisateur,$anne, $imgname, $imgtmp_name){
             $os = new Serie();
             
@@ -28,18 +30,6 @@
             }
         }
 
-        public function addSaison($serie, $libelle){
-            $os = new Serie();
-            
-            if($connexion = ($os->getBDD())){
-                $idSerie = $os->getSerieId($serie);
-                $serie=$connexion->quote($serie);
-                $libelle=$connexion->quote($libelle);
-                $requete="INSERT INTO saison (id,id_serie,libelle) VALUES ('','$idSerie',$libelle)";
-                $insertion=$connexion->exec($requete);
-            }  
-        }
-
 
         // GETTERS 
 
@@ -52,6 +42,22 @@
                 return $tab['id'];
             }
         }
+
+        public function getSerieName(){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT * FROM serie ORDER BY id DESC";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
+
+        public function acterFormat($acteur){
+            
+        }
+
+        // IMAGE MANAGEMENT
 
         public function addRepository(){
             $os = new Serie();
@@ -69,24 +75,6 @@
             $chemindef=$repository."/".$nameImg;
             $tmp_name = $imgtmp_name;
             move_uploaded_file($tmp_name, $chemindef);
-        }
-
-        public function getSerieName(){
-            $os = new Serie();
-            if($connexion = ($os->getBDD())){
-                $recherche="SELECT * FROM serie ORDER BY id DESC";
-				$result=$connexion->query($recherche);
-				$tab=$result->fetchAll(PDO::FETCH_OBJ);
-                return $tab;
-            }
-        }
-
-        public function getID(){
-
-        }
-
-        public function acterFormat($acteur){
-            
         }
 
     }

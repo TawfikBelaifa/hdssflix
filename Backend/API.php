@@ -4,6 +4,7 @@
         include "../Model/signUp.php";
         include "../Model/Login.php";
         include "../Model/Serie.php";
+        include "../Model/Saison.php";
     }
 
     if(basename(dirname($_SERVER['SCRIPT_NAME'])) == "Data" ){
@@ -11,6 +12,7 @@
         include "../../Model/signUp.php";
         include "../../Model/Login.php";
         include "../../Model/Serie.php";
+        include "../../Model/Saison.php";
     }
 
     

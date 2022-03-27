@@ -19,7 +19,7 @@
                 <ul id="serie_fonction">
                     <li id="_addSerie">Ajouter série</li>
                     <li id="_addSaison">Ajouter saison</li>
-                    <li>Ajouter épisode</li>
+                    <li id="_addEpisode">Ajouter épisode</li>
                     <li>Masquer Serie</li>
                 </ul>
                 <ul id="movie_fonction">
@@ -73,7 +73,7 @@
                             <input type="submit" id="btnAddSerie" value="Ajouter"> <input type="reset" class="btnReset" value="Annuler">
                         </div>
                     </form>
-                    <div class="msgAdd">
+                    <div class="msgAdd msgAddserie">
                         <div class="sucess"></div>
                         <div class="echec"></div>
                     </div>
@@ -93,7 +93,60 @@
                     <div class="bottom_adsc">
                         <input type="submit" id="btnAddSaison" value="Ajouter"> <input type="reset" class="btnReset" value="Annuler">
                     </div>
-                    <div class="msgAdd">
+                    <div class="msgAdd msgAddsaison">
+                        <div class="sucess"></div>
+                        <div class="echec"></div>
+                    </div>
+                </div>
+
+                <!-- New episode -->
+                <div class="addEpisode_contain newAdd">
+                    <div class="facultatTitle">Nouvel Episode</div>
+                    <form action="" ENCTYPE="multipart/form-data" class="allDataSerie">
+                        <div class="top_adsc">
+                                <div class="left_adsc">
+                                    <div class="titleSerie">
+                                        <input type="text" name="titleSerie" id="titleSerie" class="tilte dataSerie" placeholder="Nom">
+                                    </div>
+                                    <div>
+                                        
+                                    </div>
+                                    <div class="resume">
+                                        <textarea name="resumeSerie" id="" cols="30" rows="10" class="resume dataSerie" placeholder="Résumé de la serie"></textarea>
+                                    </div>
+                                </div>
+                                <div class="right_adsc">
+                                    <select name="genre" class="genre dataSerie">
+                                        <option v-for="serie in serieList" :value="serie.titre">{{serie.titre}}</option>
+                                    </select>
+                                    <select name="genre" class="genre dataSerie">
+                                        <option value=""> Saison</option>
+                                        <option v-for="n in 30" v-bind:value="'Saison ' + n"> Saison {{n}}</option>
+                                    </select>
+                                    <select name="genre" class="genre dataSerie">
+                                        <option value=""> Format</option>
+                                        <option value="Action">4K</option>
+                                        <option value="scienceFiction">2K</option>
+                                        <option value="Drame">HD</option>
+                                    </select>
+                                    <select name="genre" class="genre dataSerie">
+                                        <option value=""> Version</option>
+                                        <option value="Français">Français</option>
+                                        <option value="Anglais">Anglais</option>
+                                        <option value="Espagnol">Espagnol</option>
+                                        <option value="Arabe">Arabe</option>
+                                    </select>
+                                    <label for="imageSerie">
+                                        <div class="btnAddImg">Video</div>
+                                    </label>
+                                    <input type="file" name="imgSeries" id="imageSerie" class="imageSerie dataSerie">
+                                </div>
+                        </div>
+                        <div class="bottom_adsc">
+                            <input type="submit" id="btnAddSerie" value="Ajouter"> <input type="reset" class="btnReset" value="Annuler">
+                        </div>
+                    </form>
+                    <div class="msgAdd msgAddserie">
                         <div class="sucess"></div>
                         <div class="echec"></div>
                     </div>

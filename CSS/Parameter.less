@@ -93,7 +93,7 @@
                     color: aquamarine;
                 }
                 .echec{
-                    color: rgb(139, 33, 33);
+                    color: red;
                 }
             }
 
@@ -167,7 +167,7 @@
             }
 
             // ADD NEW SERIE
-            .addSerie_contain{
+            .addSerie_contain, .addEpisode_contain{
                 display: none;
                 flex-direction: column;
                 justify-content: center;
@@ -219,8 +219,12 @@
                         display: flex;
                         flex-direction: column;
                         .imageSerie{
+                            height: 0;
+                            width: 0;
                             background-color: aqua;
                             visibility: hidden;
+                            margin: 0;
+                            padding: 0;
                         }
                         .btnAddImg{
                             cursor: pointer;

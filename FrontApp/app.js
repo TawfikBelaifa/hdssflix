@@ -39,6 +39,11 @@ $(document).ready(function(){
         $(".addSaison_contain").css("display", "flex");
     })
 
+    $("#_addEpisode").on("click", function(){
+        $(".newAdd").css("display", "none")
+        $(".addEpisode_contain").css("display", "flex");
+    })
+
     $("#parameter").on("click", function(){
         $(".show").hide()
         $(".liClicked").removeClass("liClicked")

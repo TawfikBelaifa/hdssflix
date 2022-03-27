@@ -47,10 +47,9 @@ $(document).ready(function(){
             function(reponse){
                 $(".dataSerie").val("")
                 if(reponse == "1"){
-                    $(".msgAdd").show()
-                    $(".msgAdd .sucess").show()
-                    $(".msgAdd .sucess").html("Serie Ajouter avec succés")
-                    
+                    $(".msgAddserie").hide()
+                    $(".msgAddserie .sucess").show()
+                    $(".msgAddserie .sucess").html("Serie Ajoutée avec succés")
                 }
             }
         });
@@ -64,12 +63,19 @@ $(document).ready(function(){
             './Backend/Action/addSaison.php',
             $('.dataSaison').serializeArray(),
             function(reponse){
-                $(".msgAdd").show()
-                $(".msgAdd .sucess").show()
-                $(".msgAdd .sucess").html("Saison Ajoutée avec succés")
+                $(".msgAdd").show() 
+                reponse = JSON.parse(reponse)
+                if(reponse == "1"){   
+                    $(".msgAddsaison .echec").hide()
+                    $(".msgAddsaison .sucess").show()
+                    $(".msgAddsaison .sucess").html("Saison Ajoutée avec succés");
+                }else{
+                    $(".msgAddsaison .sucess").hide()
+                    $(".msgAddsaison .echec").show()
+                    $(".msgAddsaison .echec").html("Cette saison existe déjà");
+                }
+                
             }
         )
     })
-
-
 })
