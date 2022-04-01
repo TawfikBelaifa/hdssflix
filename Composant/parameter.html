@@ -108,15 +108,12 @@
                                     <div class="titleSerie">
                                         <input type="text" name="titleEpisode" id="titleEpisode" class="titleEpisode dataEpisode" placeholder="Nom">
                                     </div>
-                                    <div>
-                                        
-                                    </div>
                                     <div class="resume">
                                         <textarea name="resumeEpisode" id="" cols="30" rows="10" class="resume dataEpisode" placeholder="Résumé de la serie"></textarea>
                                     </div>
                                 </div>
                                 <div class="right_adsc">
-                                    <select name="genre" class="genre dataEpisode">
+                                    <select name="serie" class="genre dataEpisode">
                                         <option v-for="serie in serieList" :value="serie.titre">{{serie.titre}}</option>
                                     </select>
                                     <select name="saison" class="saison dataEpisode">
@@ -125,9 +122,9 @@
                                     </select>
                                     <select name="format" class="format dataEpisode">
                                         <option value=""> Format</option>
-                                        <option value="Action">4K</option>
-                                        <option value="scienceFiction">2K</option>
-                                        <option value="Drame">HD</option>
+                                        <option value="4K">4K</option>
+                                        <option value="2K">2K</option>
+                                        <option value="HD">HD</option>
                                     </select>
                                     <select name="version" class="version dataEpisode">
                                         <option value=""> Version</option>
@@ -136,10 +133,10 @@
                                         <option value="Espagnol">Espagnol</option>
                                         <option value="Arabe">Arabe</option>
                                     </select>
-                                    <label for="imageSerie">
+                                    <label for="videoSerie">
                                         <div class="btnAddImg">Video</div>
                                     </label>
-                                    <input type="file" name="imgSeries" id="imageSerie" class="imageSerie dataEpisode">
+                                    <input type="file" name="videoSerie" id="videoSerie" class="videoSerie dataEpisode">
                                 </div>
                         </div>
                         <div class="bottom_adsc">
@@ -152,6 +149,12 @@
                     </div>
                 </div>
 
+                <!-- Hide Serie -->
+                <div class="hideSerie_PrincipalContain">
+                    <ul class="hideSerie_contain">
+                        <li v-for="serie in serieList"> <div class="titleof">{{serie.titre}}</div> <div class="btnHide"><button>Masquer</button></div> </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

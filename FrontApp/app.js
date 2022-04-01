@@ -87,4 +87,9 @@ $(document).ready(function(){
 		i += 1
 	})
 
+    var time = setTimeout(function(){
+        console.log("cliiick")
+        $(".container").hide()
+    }, 4000)
+
 })

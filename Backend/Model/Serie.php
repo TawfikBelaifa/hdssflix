@@ -53,6 +53,16 @@
             }
         }
 
+        /*public function getSerieName($idserie){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT * FROM serie WHERE id=$idserie";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetch();
+                return $tab['titre'];
+            }
+        }*/
+
         public function acterFormat($acteur){
             
         }
@@ -62,9 +72,10 @@
         public function addRepository(){
             $os = new Serie();
             if($connexion = ($os->getBDD())){
-                $recherche="SELECT id FROM serie ORDER BY id DESC limit 1";
+                $recherche="SELECT id,titre FROM serie ORDER BY id DESC limit 1";
 				$result=$connexion->query($recherche);
 				$tab=$result->fetch();
+                $os->MkdirSerie($tab['titre']);
                 return $tab['id'];
             }
         }
@@ -75,6 +86,13 @@
             $chemindef=$repository."/".$nameImg;
             $tmp_name = $imgtmp_name;
             move_uploaded_file($tmp_name, $chemindef);
+        }
+
+        public function MkdirSerie($SerieName){
+            if($SerieName != ""){
+                $repository = "../../movieSerie/".$SerieName;
+                mkdir($repository, 0777, true);
+            }
         }
 
     }

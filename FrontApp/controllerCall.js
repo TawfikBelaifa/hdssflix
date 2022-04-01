@@ -79,9 +79,11 @@ $(document).ready(function(){
 
     // Add new episode
     $("#btnAddEpisode").on("click", function(e){
+        console.log()
         e.preventDefault()
+        console.log($(".dataEpisode").serializeArray())
         $.ajax({
-            url: './Backend/Action/serieAction.php',
+            url: './Backend/Action/addEpisode.php',
             type: 'POST',
             data: new FormData($(".allDataEpisode")[0]), 
             cache: false,

@@ -62,7 +62,7 @@ a{
     backface-visibility: hidden;
     border-left: 10px solid #900C41;
     background-color: rgba(0, 0, 0, 0.5);
-    // box-shadow: 0 6px #fff;
+    box-shadow: 0 6px #fff;
 }
 /*
 .inner__form img{
