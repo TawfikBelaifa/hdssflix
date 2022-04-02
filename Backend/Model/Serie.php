@@ -22,7 +22,7 @@
                 $genre=$connexion->quote($genre);
                 $realisateur=$connexion->quote($realisateur);
                 $anne=$connexion->quote($anne);
-                $requete="INSERT INTO serie (id,titre,acteur,resume,genre,realisateur,anne,img) VALUES ('',$titre,$acteur,$resume,$genre,$realisateur,$anne,'$imgname')";
+                $requete="INSERT INTO serie (id,titre,acteur,resume,genre,realisateur,anne,img,masqued) VALUES ('',$titre,$acteur,$resume,$genre,$realisateur,$anne,'$imgname',0)";
                 $insertion=$connexion->exec($requete);
                 $idLastEntry = $os->addRepository();
                 $idLastEntry = $os->uploadImg($imgname,$idLastEntry, $imgtmp_name);
@@ -46,22 +46,24 @@
         public function getSerieName(){
             $os = new Serie();
             if($connexion = ($os->getBDD())){
-                $recherche="SELECT * FROM serie ORDER BY id DESC";
+                $recherche="SELECT * FROM serie WHERE masqued=0 ORDER BY id DESC";
 				$result=$connexion->query($recherche);
 				$tab=$result->fetchAll(PDO::FETCH_OBJ);
                 return $tab;
             }
         }
+        
+        // OTHERS 
 
-        /*public function getSerieName($idserie){
-            $os = new Serie();
-            if($connexion = ($os->getBDD())){
-                $recherche="SELECT * FROM serie WHERE id=$idserie";
-				$result=$connexion->query($recherche);
-				$tab=$result->fetch();
-                return $tab['titre'];
+        public function masqueSerie($idSerie){
+            if($idSerie != null){
+                $os = new Serie();
+                if($connexion = ($os->getBDD())){
+                    $requete="UPDATE serie SET masqued=1 WHERE id=$idSerie";
+                    $updated=$connexion->exec($requete);
+                }
             }
-        }*/
+        }
 
         public function acterFormat($acteur){
             

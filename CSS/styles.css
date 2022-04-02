@@ -1,12 +1,22 @@
 /* FONT IMPORTATION */
 @import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Montserrat:wght@100;300&family=Quicksand:wght@300&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
 
 /* LESS Style Importation */
 
 :root {
     --palette-bgc-color: #E50914;
     --palette-text-color:#fff;
-    --palette-bd-color:#292929;
+    --palette-bd-color:#000;
     --palette-head-color:#000;
 
     --fontFamilly : 'Hubballi', cursive;
@@ -34,4 +44,6 @@ body{
 a{
     text-decoration: none;
 }
+
+
 

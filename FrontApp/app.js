@@ -25,6 +25,7 @@ $(document).ready(function(){
     $(".msgAdd").hide()
     $(".msgAdd .sucess").hide()
     $(".msgAdd .echec").hide()
+    $(".hideSerie_PrincipalContain").hide()
 
     //UI/UX Interaction
     $(".switchBtn").on("click",SwitchUILogin);
@@ -42,6 +43,16 @@ $(document).ready(function(){
     $("#_addEpisode").on("click", function(){
         $(".newAdd").css("display", "none")
         $(".addEpisode_contain").css("display", "flex");
+    })
+
+    $("#_hideSerie").on("click",function(){
+        $(".newAdd").css("display", "none")
+        $(".hideSerie_PrincipalContain").show()
+    })
+
+    $("#_addFilm").on("click",function(){
+        $(".newAdd").css("display", "none")
+        $(".addFilm_contain").show()
     })
 
     $("#parameter").on("click", function(){
@@ -88,7 +99,6 @@ $(document).ready(function(){
 	})
 
     var time = setTimeout(function(){
-        console.log("cliiick")
         $(".container").hide()
     }, 4000)
 

@@ -29,7 +29,24 @@ const Parameter = {
         
     },
     methods:{
-        
+        masqueSerie(id){
+            $.ajax({
+                url : 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/masqueSerie.php',
+                method: "GET",
+                data: "idSerie="+id,
+                cache: false,
+                contentType: false,
+                processData: false,
+                function(reponse){
+                    if(reponse == "1"){
+                        console.log("oui")
+                    }else{  
+                        console.log("non")
+                    }
+                }
+            })
+            $("#lineSerie"+id).css("display", "none")
+        }
     },
     mounted(){
         axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/serieName.php'})

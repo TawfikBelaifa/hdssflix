@@ -5,10 +5,6 @@
             parent::__construct();
         }
 
-        public function getBDD(){
-            $connexion = parent::getBDD();
-            return $connexion;
-        }
 
         public function addSaison($serie, $libelle){
             $os = new Saison();
@@ -28,6 +24,13 @@
                 }
             }  
         }
+
+        // GETTERS 
+
+        public function getBDD(){
+            $connexion = parent::getBDD();
+            return $connexion;
+        }
         
         public function getDoublons($serie,$saison){
             $os = new Saison();
@@ -45,6 +48,7 @@
             }
         }
 
+        // REPOSITORY MANAGEMENT
         public function MkdirSaison($serie, $saison){
             if($serie != "" && $saison != ""){
                 $repository = "../../movieSerie/".$serie."/".$saison;

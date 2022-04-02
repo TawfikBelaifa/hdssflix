@@ -38,6 +38,7 @@
   background: #b00612;
   height: 100%;
   width: 120px;
+  
 }
 .logo .uno {
   left: 0;
@@ -62,11 +63,22 @@
 
 .titleAnnimation{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 44px;
+  font-size: 74px;
   color: #e50815;
   letter-spacing: 25px;
-  margin-left: 15px;
+  margin-left: 20px;
   font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik Glitch', cursive;
+  font-family: 'Rubik Wet Paint', cursive;
+  font-family: 'Rubik Microbe', cursive;
+  font-family: 'Monoton', cursive;
+  font-family: 'Syncopate', sans-serif;
+  font-family: 'Gruppo', cursive;
+  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Cinzel Decorative', cursive;
+  border-bottom: 1px solid;
+  width: 80vw;
+  text-align: center;
 }
 
 

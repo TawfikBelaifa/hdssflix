@@ -99,4 +99,25 @@ $(document).ready(function(){
             }
         });
     })
+
+    // ADD NEW FILM
+    $("#btnAddFilm").on("click", function(e){
+        e.preventDefault()
+        $.ajax({
+            url: './Backend/Action/serieAction.php',
+            type: 'POST',
+            data: new FormData($(".allDataSerie")[0]), 
+            cache: false,
+            contentType: false,
+            processData: false,
+            function(reponse){
+                $(".dataSerie").val("")
+                if(reponse == "1"){
+                    $(".msgAddserie").hide()
+                    $(".msgAddserie .sucess").show()
+                    $(".msgAddserie .sucess").html("Serie Ajoutée avec succés")
+                }
+            }
+        });
+    })
 })

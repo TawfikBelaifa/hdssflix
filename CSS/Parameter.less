@@ -1,3 +1,8 @@
+
+.hide{
+    display: none;
+}
+
 .parameter_Contain{
     position: absolute;
     top: 50px;
@@ -11,7 +16,7 @@
         display: flex;
         height: 100%;
         width: 100%;
-        border-top: 1px solid#696969;
+        border-top: 1px solid #696969;
         background-color: #2a2a2a;
         .box_parameter_left{
             display: block;
@@ -136,12 +141,24 @@
 
             .bottom_adsc{
                 display: flex;
-                input{
+                width: 910px;
+                input[type=submit]{
                     margin: 10px 10px;
-                    width: 200px;
+                    width: 55%;
                     padding: 13px 20px;
                     cursor: pointer;
                     background-color: var(--palette-bgc-color);
+                    color: #fff;
+                    font-family: var(--fontFamilly);
+                    font-weight: bolder;
+                    font-size: 30px;
+                }
+                input[type=reset]{
+                    margin: 10px 10px;
+                    width: 22%;
+                    padding: 13px 20px;
+                    cursor: pointer;
+                    background-color: rgba(128, 128, 128);
                     color: #fff;
                     font-family: var(--fontFamilly);
                     font-weight: bolder;
@@ -165,7 +182,7 @@
             }
 
             // ADD NEW SERIE
-            .addSerie_contain, .addEpisode_contain{
+            .addSerie_contain, .addEpisode_contain, .hideSerie_PrincipalContain, .addFilm_contain{
                 display: none;
                 flex-direction: column;
                 justify-content: center;
@@ -263,7 +280,7 @@
                 font-family: var(--fontFamilly);
                 font-size: 23px;
                 width: 100%;
-
+                padding: 20px 50px;
                 ul{
                     padding: 20px;
                     margin: 0;

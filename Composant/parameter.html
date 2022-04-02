@@ -20,11 +20,11 @@
                     <li id="_addSerie">Ajouter série</li>
                     <li id="_addSaison">Ajouter saison</li>
                     <li id="_addEpisode">Ajouter épisode</li>
-                    <li>Masquer Serie</li>
+                    <li id="_hideSerie">Masquer Serie</li>
                 </ul>
                 <ul id="movie_fonction">
-                    <li>Ajouter</li>
-                    <li>Masquer</li>
+                    <li id="_addFilm">Ajouter</li>
+                    <li id="_hideFilm">Masquer</li>
                 </ul>
                 <ul id="reservation_fonction">
                     <li>Ajouter séance</li>
@@ -150,10 +150,59 @@
                 </div>
 
                 <!-- Hide Serie -->
-                <div class="hideSerie_PrincipalContain">
+                <div class="hideSerie_PrincipalContain newAdd">
+                    <div class="facultatTitle">Masquer Serie</div>
                     <ul class="hideSerie_contain">
-                        <li v-for="serie in serieList"> <div class="titleof">{{serie.titre}}</div> <div class="btnHide"><button>Masquer</button></div> </li>
+                        <li v-for="serie in serieList" v-bind:id="'lineSerie'+serie.id"> <div class="titleof">{{serie.titre}}</div> <div class="btnHide"><button @click="masqueSerie(serie.id)">Masquer</button></div> </li>
                     </ul>
+                </div>
+
+                <!-- Container Film -->
+                <div class="addFilm_contain newAdd">
+                    <div class="facultatTitle">Nouvelle Film</div>
+                    <form action="" ENCTYPE="multipart/form-data" class="allDataFilm">
+                        <div class="top_adsc">
+                                <div class="left_adsc">
+                                    <div class="titleSerie">
+                                        <input type="text" name="titleSerie" id="titleSerie" class="tilte dataSerie" placeholder="Nom">
+                                    </div>
+                                    <div class="acterSerie">
+                                        <div class="lcas">
+                                            <input type="text" name="acterSerie1" id="" class="acteur dataSerie" placeholder="Acteur 1">
+                                        </div> 
+                                        <img src="./img/plus.png" alt="" class="addMoreActers" id="btnAddActer">
+                                    </div>
+                                    <div class="resume">
+                                        <textarea name="resumeSerie" id="" cols="30" rows="10" class="resume dataSerie" placeholder="Résumé du film"></textarea>
+                                    </div>
+                                </div>
+                                <div class="right_adsc">
+                                    <select name="genre" class="genre dataSerie">
+                                        <option value=""> Genre</option>
+                                        <option value="Action">Action</option>
+                                        <option value="scienceFiction">Science Fiction</option>
+                                        <option value="Drame">Drame</option>
+                                    </select>
+                                    <input type="text" name="realisateurSerie" id="realisateur" class="realisateur dataSerie" placeholder="Realisateur"> 
+                                    <input type="text" name="anneeSerie" id="annee" placeholder="Année" class="annee dataSerie">
+                                    <label for="imageSerie">
+                                        <div class="btnAddImg">Image</div>
+                                    </label>
+                                    <input type="file" name="imgSeries" id="imageSerie" class="imageSerie dataSerie">
+                                    <label for="videoSerie">
+                                        <div class="btnAddImg">Video</div>
+                                    </label>
+                                    <input type="file" name="mvSeries" id="videoSerie" class="imageSerie dataSerie">
+                                </div>
+                        </div>
+                        <div class="bottom_adsc">
+                            <input type="submit" id="btnAddFilm" value="Ajouter"> <input type="reset" class="btnReset" value="Annuler">
+                        </div>
+                    </form>
+                    <div class="msgAdd msgAddserie">
+                        <div class="sucess"></div>
+                        <div class="echec"></div>
+                    </div>
                 </div>
             </div>
         </div>
