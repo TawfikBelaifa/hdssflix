@@ -75,7 +75,8 @@ const Home = {
         return {
             name: "",
             statu: "",
-            allSerie:{}
+            allSerie:{},
+            allFilm:{}
         }
     }, 
     computed: {
@@ -92,6 +93,9 @@ const Home = {
         // Recuperation des données 
         axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/serieName.php'})
        .then(response => (this.allSerie = response.data));
+       
+       axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/film.php'})
+       .then(response => (this.allFilm = response.data));
     }
 }
 

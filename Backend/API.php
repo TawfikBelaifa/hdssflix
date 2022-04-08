@@ -6,6 +6,7 @@
         include "../Model/Serie.php";
         include "../Model/Saison.php";
         include "../Model/Episode.php";
+        include "../Model/Film.php";
     }
 
     if(basename(dirname($_SERVER['SCRIPT_NAME'])) == "Data" ){
@@ -15,6 +16,7 @@
         include "../../Model/Serie.php";
         include "../../Model/Saison.php";
         include "../../Model/Episode.php";
+        include "../../Model/Film.php";
     }
 
     

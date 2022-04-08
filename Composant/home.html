@@ -1,16 +1,33 @@
 <script type="text/x-template" id="home">
     <div class="containHomeApp" >
-        <div class="titleTop">Dernieres Séries Ajoutées</div>
-        <div class="containerfilm">
-            <div v-for="serie in allSerie">
-                <router-link :to="{ name: 'OneSerie', params: { id: serie.id } }" >
-                <div class="afficheSerie">
-                    <div class="imgAffiche">
-                        <img v-bind:src="'./imgSerie/'+serie.id+'/'+serie.img" alt="" srcset="">
+        <div class="principalContainerSerie">
+            <div class="titleTop">Dernieres Séries Ajoutées</div>
+            <div class="containerSerie">
+                <div v-for="serie in allSerie">
+                    <router-link :to="{ name: 'OneSerie', params: { id: serie.id } }" >
+                    <div class="afficheSerie">
+                        <div class="imgAffiche">
+                            <img v-bind:src="'./imgSerie/'+serie.id+'/'+serie.img" alt="" srcset="">
+                        </div>
+                        <div class="nameSerie">{{serie.titre}}</div>
                     </div>
-                    <div class="nameSerie">{{serie.titre}}</div>
+                    </router-link>
                 </div>
-                </router-link>
+            </div>
+        </div>
+        <div class="princpalContainFilm">
+            <div class="titleTop">Dernieres Films Ajoutés</div>
+            <div class="containerSerie">
+                <div v-for="film in allFilm">
+                    <router-link :to="{ name: 'OneSerie', params: { id: film.id } }" >
+                    <div class="afficheSerie">
+                        <div class="imgAffiche">
+                            <img v-bind:src="'./movieFilm/'+film.image" alt="" srcset="">
+                        </div>
+                        <div class="nameSerie">{{film.titre}}</div>
+                    </div>
+                    </router-link>
+                </div>
             </div>
         </div>
     </div>

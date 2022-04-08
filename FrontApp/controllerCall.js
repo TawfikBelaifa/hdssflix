@@ -102,11 +102,12 @@ $(document).ready(function(){
 
     // ADD NEW FILM
     $("#btnAddFilm").on("click", function(e){
+        console.log($($(".allDataFilm")[0]).serializeArray())
         e.preventDefault()
         $.ajax({
-            url: './Backend/Action/serieAction.php',
+            url: './Backend/Action/addFilm.php',
             type: 'POST',
-            data: new FormData($(".allDataSerie")[0]), 
+            data: new FormData($(".allDataFilm")[0]), 
             cache: false,
             contentType: false,
             processData: false,
