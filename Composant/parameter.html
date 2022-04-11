@@ -21,15 +21,15 @@
                     <li id="_addSaison">Ajouter saison</li>
                     <li id="_addEpisode">Ajouter épisode</li>
                     <li id="_hideSerie">Masquer Serie</li>
-                </ul>
+                </ul> 
                 <ul id="movie_fonction">
-                    <li id="_addFilm">Ajouter</li>
-                    <li id="_hideFilm">Masquer</li>
+                    <li id="_addFilm">Ajouter Film</li>
+                    <!-- <li id="_hideFilm">Masquer</li> -->
                 </ul>
                 <ul id="reservation_fonction">
-                    <li>Ajouter séance</li>
-                    <li>Consulter</li>
-                    <li>Modifier Horaire séance</li>
+                    <li id="_addSeance">Ajouter séance</li>
+                    <!-- <li>Consulter</li>
+                    <li>Modifier Horaire séance</li> -->
                 </ul>
             </div>
             <div class="box_parameter_right">
@@ -167,10 +167,10 @@
                                         <input type="text" name="titleSerie" id="titleSerie" class="tilte dataSerie" placeholder="Nom">
                                     </div>
                                     <div class="acterSerie">
-                                        <div class="lcas">
+                                        <div class="lcas acterContainFilm">
                                             <input type="text" name="acterSerie1" id="" class="acteur dataSerie" placeholder="Acteur 1">
                                         </div> 
-                                        <img src="./img/plus.png" alt="" class="addMoreActers" id="btnAddActer">
+                                        <img src="./img/plus.png" alt="" class="addMoreActers acterFilm" id="btnAddActer">
                                     </div>
                                     <div class="resume">
                                         <textarea name="resumeSerie" id="" cols="30" rows="10" class="resume dataSerie" placeholder="Résumé du film"></textarea>
@@ -203,6 +203,52 @@
                     <div class="msgAdd msgAddserie">
                         <div class="sucess"></div>
                         <div class="echec"></div>
+                    </div>
+                </div>
+
+                <!-- ADD NEW SEANCE -->
+                <div class="addSeance_contain newAdd">
+                    <div class="facultatTitle">Nouvelle séance</div>
+                    <!-- <div class="choice">
+                        <div>Film</div>
+                        <div>Episode</div>
+                    </div> -->
+                    <div class="contain_Adder">
+                        <div class="filmContainAdder">
+                            <select name="filmChoice" class="filmChoose dataAddfilmseance">
+                                <option v-for="film in allFilm" :value="film.titre">{{film.titre}}</option>
+                            </select>
+                            <input type="date" name="date" class="dataAddfilmseance">
+                            <input type="time" name="heure" id="" class="dataAddfilmseance">
+                            <select name="format" id="" class="dataAddfilmseance">
+                                <option value="4K">4K</option>
+                                <option value="4K">2K</option>
+                                <option value="4K">HD</option>
+                                <option value="4K">3D</option>
+                            </select>
+                            <select name="salle" class="salle dataAddfilmseance">
+                                <option value=""> Salle</option>
+                                <option v-for="n in 20" v-bind:value="'Salle ' + n"> Salle {{n}}</option>
+                            </select>
+                        </div>
+                        <!-- <div class="serieContainAdder">
+                            <select name="serie" id="" class="dataAddserieseance">
+                                <option value="">Serie</option>
+                            </select> 
+                            <select name="serie" id="" class="dataAddserieseance">
+                                <option value="">Saison</option>
+                            </select>
+                            <input type="date" name="date" class="dataAddserieseance">
+                            <input type="time" name="heure" id="" class="dataAddserieseance">
+                            <select name="format" id="" class="dataAddserieseance"></select>
+                        </div> -->
+                        <div class="bottom_adsc">
+                            <input type="submit" id="btnAddSeance" value="Ajouter"> <input type="reset" class="btnReset" value="Annuler">
+                        </div>
+                        <div class="msgAdd msgAddserie">
+                            <div class="sucess"></div>
+                            <div class="echec"></div>
+                        </div>
                     </div>
                 </div>
             </div>

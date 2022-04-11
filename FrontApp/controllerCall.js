@@ -112,7 +112,7 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             function(reponse){
-                $(".dataSerie").val("")
+                $(".allDataFilm").val("")
                 if(reponse == "1"){
                     $(".msgAddserie").hide()
                     $(".msgAddserie .sucess").show()
@@ -121,4 +121,27 @@ $(document).ready(function(){
             }
         });
     })
+
+    // ADD NEW SEANCE
+    $("#btnAddSeance").on("click", function(){
+        console.log($(".dataAddfilmseance").serializeArray())
+        $.post(
+            './Backend/Action/addSeance.php',
+            $(".dataAddfilmseance").serializeArray(),
+            function(reponse){
+                $(".msgAdd").show() 
+                reponse = JSON.parse(reponse)
+                if(reponse == "1"){   
+                    $(".msgAddsaison .echec").hide()
+                    $(".msgAddsaison .sucess").show()
+                    $(".msgAddsaison .sucess").html("Seance Ajoutée avec succés");
+                }else{
+                    $(".msgAddsaison .sucess").hide()
+                    $(".msgAddsaison .echec").show()
+                    $(".msgAddsaison .echec").html("Cette saison existe déjà");
+                }
+                
+            }
+        )
+    })  
 })

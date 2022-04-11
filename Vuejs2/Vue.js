@@ -23,6 +23,7 @@ const Parameter = {
     data: () => {
         return {
             serieList:null,
+            allFilm:{}
         }
     }, 
     computed: {
@@ -51,19 +52,33 @@ const Parameter = {
     mounted(){
         axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/serieName.php'})
         .then(response => (this.serieList = response.data));
+
+        axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/film.php'})
+        .then(response => (this.allFilm = response.data));
     }
 }
 
-const OneSerie = {
-    template: '#oneSerie', 
-    name: 'OneSerie',
+const OneFilm = {
+    template: '#oneFilm', 
+    name: 'OneFilm',
     data: () =>{
         return {
-            idSerie:null
+            idFilm:null,
+            allFilm:[],
+        }
+    },
+    computed : {
+        oneFilm(){
+           return this.allFilm.filter((film) => { return film.id.includes(this.idFilm)})
         }
     },
     mounted(){
-        this.idSerie = this.$route.params.id
+        this.idFilm = this.$route.params.id;
+    }, 
+    created(){
+        axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/film.php'})
+        .then(response => (this.allFilm = response.data))
+
     }
 }
 
@@ -103,7 +118,7 @@ const routes = [
     {path: '/', component: Home},
     {path: '/Parameter', name:"Parameter", component: Parameter},
     {path: '/Parameter/Gestionfilm', name:"Gestionfilm", component: Gestionfilm},
-    {path: '/Home/OneSerie/:id', name:"OneSerie",  component: OneSerie},
+    {path: '/Home/OneFilm/:id', name:"OneFilm",  component: OneFilm},
 ]
 
 const router = new VueRouter({

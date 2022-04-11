@@ -1,0 +1,61 @@
+<script type="text/x-template" id="oneFilm">
+    <div v-for="film in oneFilm">
+        <div class="cp_OneSerie">
+                <div class="leftCPOS">
+                    <img :src="'./movieFilm/'+film.titre+'/'+film.image" alt="" srcset="">
+                </div>
+                <div class="rightCPOS">
+                    <div class="rightTopCPOS">
+                        <div class="top">
+                            <div class="left">{{film.titre}}</div>
+                            <div class="right">
+                                    <div class="format">4K</div>
+                            </div>
+                        </div>
+                        <div class="bottom">
+                            <div class="left">
+                                <div class="acteur">
+                                        <h3>Distribution :</h3>
+                                        <div class="__act">Vins Diesel</div>
+                                        <div class="__act">Khamzat Chemaev</div>
+                                        <div class="__act">Danna White</div>
+                                </div>
+                                <div class="sortie"> <h3>Date de sortie :</h3>   <div class="__act"> {{film.annee}}</div></div>
+                                <div class="realisateur"><h3>Realisateur :  </h3> <div class="__act">{{film.realisateur}}</div></div>
+                                <div class="Origine"><h3>Origine :  </h3> <div class="__act">USA</div></div>
+                            </div> 
+                            <div class="right">
+                                <div class="top">
+                                    <h3>Resumé :</h3>
+                                    {{film.resume}}
+                                </div>
+                                <div class="bottom">
+                                    <div class="left">
+                                        <h3>Racing : </h3>
+                                        <div class="__act">4.5</div>
+                                    </div>
+                                    <div class="center">
+                                        <h3>Genre : </h3>
+                                        <div class="__act">Science Fiction</div>
+                                        <div class="__act">Action</div>
+                                    </div>
+                                    <div class="right">
+                                        <h3>Cinema :</h3>
+                                        <div class="__act">Gaumon</div>
+                                        <div class="__act">Pathé</div>
+                                        <div class="__act">UGC</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rightBottomCPOS">
+                        <video controls="controls" :poster="'./movieFilm/'+film.titre+'/'+film.image">
+                            <source src="./movieFilm/Transformers IV/epi 1 saison 2 the witcher.mp4"> 
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

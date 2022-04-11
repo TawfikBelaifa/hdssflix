@@ -19,10 +19,10 @@
             <div class="titleTop">Dernieres Films Ajoutés</div>
             <div class="containerSerie">
                 <div v-for="film in allFilm">
-                    <router-link :to="{ name: 'OneSerie', params: { id: film.id } }" >
+                    <router-link :to="{ name: 'OneFilm', params: { id: film.id } }" >
                     <div class="afficheSerie">
                         <div class="imgAffiche">
-                            <img v-bind:src="'./movieFilm/'+film.image" alt="" srcset="">
+                            <img v-bind:src="'./movieFilm/'+film.titre+'/'+film.image" alt="" srcset="">
                         </div>
                         <div class="nameSerie">{{film.titre}}</div>
                     </div>

@@ -26,6 +26,7 @@ $(document).ready(function(){
     $(".msgAdd .sucess").hide()
     $(".msgAdd .echec").hide()
     $(".hideSerie_PrincipalContain").hide()
+    $(".addSeance_contain").hide()
 
     //UI/UX Interaction
     $(".switchBtn").on("click",SwitchUILogin);
@@ -53,6 +54,11 @@ $(document).ready(function(){
     $("#_addFilm").on("click",function(){
         $(".newAdd").css("display", "none")
         $(".addFilm_contain").show()
+    })
+
+    $("#_addSeance").on('click', function(){
+        $(".newAdd").css("display", "none")
+        $(".addSeance_contain").show()
     })
 
     $("#parameter").on("click", function(){
@@ -95,6 +101,13 @@ $(document).ready(function(){
     $('#btnAddActer').on('click', function(){
         console.log("click")
 		$('.lcas').append('<input type="texte" name="acterSerie'+i+'" placeholder="Acteur '+i+'" class="acteur dataSerie">')
+		i += 1
+	})
+
+    
+    $('.acterFilm').on('click', function(){
+        console.log("click")
+		$('.acterContainFilm').append('<input type="texte" name="acterSerie'+i+'" placeholder="Acteur '+i+'" class="acteur dataSerie">')
 		i += 1
 	})
 
