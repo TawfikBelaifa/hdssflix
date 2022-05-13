@@ -1,0 +1,57 @@
+.principalContainerPreference{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    div{
+        width: 100%;
+
+        .facultatTitle{
+            font-family: var(--fontFamilly);
+            color: var(--palette-bgc-color);
+            font-size: 30px;
+            padding: 10px;
+        }
+        .containerPreference{
+            .top{
+                input, select, option{
+                    margin: 10px 10px;
+                    width: 309px;
+                    padding: 13px 20px;
+                    border: 1px solid #696969;
+                    color: #fff;
+                    border-radius: 5px;
+                    background-color: #000;
+                    font-family: var(--fontFamilly);
+                    font-size: 20px;
+                }
+            }
+            .bottom{
+                input[type=submit]{
+                    margin: 10px 10px;
+                    width: 42%;
+                    padding: 13px 20px;
+                    cursor: pointer;
+                    background-color: var(--palette-bgc-color);
+                    color: #fff;
+                    font-family: var(--fontFamilly);
+                    font-weight: bolder;
+                    font-size: 30px;
+                }
+                
+                input[type=reset]{
+                    margin: 10px 10px;
+                    width: 22%;
+                    padding: 13px 20px;
+                    cursor: pointer;
+                    background-color: rgba(128, 128, 128);
+                    color: #fff;
+                    font-family: var(--fontFamilly);
+                    font-weight: bolder;
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}

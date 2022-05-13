@@ -1,0 +1,30 @@
+<script type="text/x-template" id="preference">
+    <div class="principalContainerPreference">
+        <div>
+            <div class="facultatTitle">Préférence</div>
+            <div class="containerPreference">
+                <div class="top">
+                    <select name="GenrePref" id="" class="dataNewPref">
+                        <option value="">Genre</option>
+                        <option v-for="genre in allGenre" :value="genre.genre">{{genre.genre}}</option>
+                    </select>
+                    <select name="realisateurPref" id="" class="dataNewPref">
+                        <option value="">Realisateur</option>
+                        <option v-for="realisateur in allRealisateur" :value="realisateur.realisateur">{{realisateur.realisateur}}</option>
+                    </select>
+                    <select name="annePref" id="" class="dataNewPref">
+                        <option value="">Année</option>
+                        <option v-for="anne in allYears" :value="anne.anne">{{anne.anne}}</option>
+                    </select>
+                </div>
+                <div class="bottom">
+                    <input type="submit" id="btnAddSerie" value="Ajouter" class="btnAddPrefenrence" @click="addNewPref()"> <input type="reset" class="btnReset" value="Annuler">
+                </div>
+            </div>
+        </div>
+        <div class="responseBack">
+            <div class="sucess">Ajout avec succés</div>
+            <div class="echec">Ajout échoué</div>
+        </div>
+    </div>
+</script>

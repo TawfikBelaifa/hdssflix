@@ -25,6 +25,7 @@ $(document).ready(function(){
                     if(dataFront[1].value == reponse.mdp){
                         sessionStorage.setItem('name', reponse.fullname);
                         sessionStorage.setItem('statu', reponse.statu);
+                        sessionStorage.setItem('iduser', reponse.id);
                         window.location.replace("./Membre.php");
                     }
                 }else{
@@ -143,5 +144,5 @@ $(document).ready(function(){
                 
             }
         )
-    })  
+    }) 
 })

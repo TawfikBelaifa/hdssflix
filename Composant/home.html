@@ -1,10 +1,10 @@
 <script type="text/x-template" id="home">
     <div class="containHomeApp" >
-        <div class="principalContainerSerie">
-            <div class="titleTop">Dernieres Séries Ajoutées</div>
-            <div class="containerSerie">
-                <div v-for="serie in allSerie">
-                    <router-link :to="{ name: 'OneSerie', params: { id: serie.id } }" >
+        <div class="principalContainerSerie " >
+            <div class="titleTop">Séries</div>
+            <div class="containerSerie containerSerieAll">
+                <div v-for="serie in allSerie" class="containerSerieAllBis">
+                    <router-link :to="{ name: 'OneSerie', params: { id: serie.id, name : serie.titre } }" >
                     <div class="afficheSerie">
                         <div class="imgAffiche">
                             <img v-bind:src="'./imgSerie/'+serie.id+'/'+serie.img" alt="" srcset="">
@@ -14,11 +14,13 @@
                     </router-link>
                 </div>
             </div>
+            <div class="rightclick arrow-click" @click="nextAllSerie()"><img src="./img/right-arrow.png" alt="" srcset=""></div>
+            <div class="leftclick arrow-click" @click="prevAllSerie()"><img src="./img/left-arrow.png" alt="" srcset=""></div>
         </div>
         <div class="princpalContainFilm">
             <div class="titleTop">Dernieres Films Ajoutés</div>
-            <div class="containerSerie">
-                <div v-for="film in allFilm">
+            <div class="containerSerie containerFilm">
+                <div v-for="film in allFilm" class="containerFilmBis">
                     <router-link :to="{ name: 'OneFilm', params: { id: film.id } }" >
                     <div class="afficheSerie">
                         <div class="imgAffiche">
@@ -29,6 +31,94 @@
                     </router-link>
                 </div>
             </div>
+            <div class="rightclick arrow-click" @click="next()"><img src="./img/right-arrow.png" alt="" srcset=""></div>
+            <div class="leftclick arrow-click" @click="prev()"><img src="./img/left-arrow.png" alt="" srcset=""></div>
+        </div>
+        <div class="princpalContainFilm actionSerie" >
+            <div class="titleTop">Série d'Action</div>
+            <div class="containerSerie containerSerieAction">
+                <div v-for="serie in actionSerie" class="containerSerieBis containerSerieActionBis">
+                    <router-link :to="{ name: 'OneSerie', params: { id: serie.id, name : serie.titre } }" >
+                    <div class="afficheSerie">
+                        <div class="imgAffiche">
+                            <img v-bind:src="'./imgSerie/'+serie.id+'/'+serie.img" alt="" srcset="">
+                        </div>
+                        <div class="nameSerie">{{serie.titre}}</div>
+                    </div>
+                    </router-link>
+                </div>
+            </div>
+            <div class="rightclick arrow-click" @click="nextActionSerie()"><img src="./img/right-arrow.png" alt="" srcset=""></div>
+            <div class="leftclick arrow-click" @click="prevActionSerie()"><img src="./img/left-arrow.png" alt="" srcset=""></div>
+        </div>
+        <div class="princpalContainFilm dramatiqueSerie" >
+            <div class="titleTop">Série Dramatique</div>
+            <div class="containerSerie containerSerieDramatique">
+                <div v-for="serie in dramatiqueSerie" class="containerSerieBis containerSerieDramatiqueBis">
+                    <router-link :to="{ name: 'OneSerie', params: { id: serie.id, name : serie.titre } }" >
+                    <div class="afficheSerie">
+                        <div class="imgAffiche">
+                            <img v-bind:src="'./imgSerie/'+serie.id+'/'+serie.img" alt="" srcset="">
+                        </div>
+                        <div class="nameSerie">{{serie.titre}}</div>
+                    </div>
+                    </router-link>
+                </div>
+            </div>
+            <div class="rightclick arrow-click" @click="nextDrameSerie()"><img src="./img/right-arrow.png" alt="" srcset=""></div>
+            <div class="leftclick arrow-click" @click="prevDrameSerie()"><img src="./img/left-arrow.png" alt="" srcset=""></div>
+        </div>
+        <div class="princpalContainFilm othersSerie" >
+            <div class="titleTop">Série Science Fiction</div>
+            <div class="containerSerie containerSerieOthers">
+                <div v-for="serie in SFSerie" class="containerSerieBis containerSerieOthersBis">
+                    <router-link :to="{ name: 'OneSerie', params: { id: serie.id, name : serie.titre } }" >
+                    <div class="afficheSerie">
+                        <div class="imgAffiche">
+                            <img v-bind:src="'./imgSerie/'+serie.id+'/'+serie.img" alt="" srcset="">
+                        </div>
+                        <div class="nameSerie">{{serie.titre}}</div>
+                    </div>
+                    </router-link>
+                </div>
+            </div>
+            <div class="rightclick arrow-click" @click="nextOthersSerie()"><img src="./img/right-arrow.png" alt="" srcset=""></div>
+            <div class="leftclick arrow-click" @click="prevOthersSerie()"><img src="./img/left-arrow.png" alt="" srcset=""></div>
+        </div>
+        <div class="princpalContainFilm othersSerie" >
+            <div class="titleTop">Autres Séries</div>
+            <div class="containerSerie containerSerieAll">
+                <div v-for="serie in othersSerie" class="containerSerieBis containerSerieAllBis">
+                    <router-link :to="{ name: 'OneSerie', params: { id: serie.id, name : serie.titre } }" >
+                    <div class="afficheSerie">
+                        <div class="imgAffiche">
+                            <img v-bind:src="'./imgSerie/'+serie.id+'/'+serie.img" alt="" srcset="">
+                        </div>
+                        <div class="nameSerie">{{serie.titre}}</div>
+                    </div>
+                    </router-link>
+                </div>
+            </div>
+            <div class="rightclick arrow-click" @click="nextAllSerie()"><img src="./img/right-arrow.png" alt="" srcset=""></div>
+            <div class="leftclick arrow-click" @click="prevAllSerie()"><img src="./img/left-arrow.png" alt="" srcset=""></div>
+        </div>
+
+        <div class="princpalContainFilm recomandation" >
+            <div class="titleTop">Recommandations</div>
+            <div class="containerSerie recomandationAll">
+                <div v-for="serie in othersSerie" class="containerSerieBis recomandationBis">
+                    <router-link :to="{ name: 'OneSerie', params: { id: serie.id, name : serie.titre } }" >
+                    <div class="afficheSerie">
+                        <div class="imgAffiche">
+                            <img v-bind:src="'./imgSerie/'+serie.id+'/'+serie.img" alt="" srcset="">
+                        </div>
+                        <div class="nameSerie">{{serie.titre}}</div>
+                    </div>
+                    </router-link>
+                </div>
+            </div>
+            <div class="rightclick arrow-click" @click="nextAllSerie()"><img src="./img/right-arrow.png" alt="" srcset=""></div>
+            <div class="leftclick arrow-click" @click="prevAllSerie()"><img src="./img/left-arrow.png" alt="" srcset=""></div>
         </div>
     </div>
 </script>

@@ -37,6 +37,16 @@
         public function getIdEpisode($episodeName){
             
         }
+
+        public function getAllEpisode(){
+            $os = new Episode();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT * FROM episode ORDER BY id_serie DESC";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
     }
 ?>
 

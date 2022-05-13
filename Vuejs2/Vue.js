@@ -17,6 +17,56 @@ const Gestionfilm = {
     }
 }
 
+const Preference = {
+    template: '#preference', 
+    name: 'Preference',
+    data:()=>{
+        return {
+            name:null,
+            statu:null,
+            iduser:null,
+            allGenre:{},
+            allRealisateur:{},
+            allYears:{}
+
+        }
+    },
+    computed:{
+        affiche(){
+           
+        }
+    }, 
+    methods:{
+
+        addNewPref(){
+            $.ajax({
+                url : 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/addPreference.php',
+                method: "GET",
+                data: "iduser="+this.iduser+"&genre="+($(".dataNewPref")[0].value)+"&realisateur="+($(".dataNewPref")[1].value)+"&anne="+($(".dataNewPref")[2].value),
+                datatype: "json",
+                cache: false,
+                contentType: false,
+                processData: false,
+            })
+
+        
+        }
+    },
+    mounted(){
+        this.name = this.$root.nom
+        this.statu = this.$root.statu
+        this.iduser = this.$root.iduser
+    },
+    created(){
+        axios({ method: 'POST', url: 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/preference/genreserie.php'})
+        .then(response => (this.allGenre = response.data));
+        axios({ method: 'POST', url: 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/preference/realisateur.php'})
+        .then(response => (this.allRealisateur = response.data));
+        axios({ method: 'POST', url: 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/preference/anne.php'})
+        .then(response => (this.allYears = response.data));
+    }
+}
+
 const Parameter = {
     template: '#parameter', 
     name: 'Parameter',
@@ -69,7 +119,7 @@ const OneFilm = {
     },
     computed : {
         oneFilm(){
-           return this.allFilm.filter((film) => { return film.id.includes(this.idFilm)})
+           return this.allFilm.filter((film) => { return (film.id) == this.idFilm })
         }
     },
     mounted(){
@@ -82,6 +132,52 @@ const OneFilm = {
     }
 }
 
+const OneSerie = {
+    template: '#oneSerie', 
+    name: 'OneSerie',
+    data: () =>{
+        return {
+            idSerie:null,
+            serieName:null,
+            allSerie:[],
+            allSaison:[],
+            allEpisode:[],
+            EpisodeOfSerie:[],
+            saisonOfserie: "Saison",
+        }
+    },
+    computed : {
+        oneSerie(){
+            this.saisonOfserie = this.allSerie.filter((serie) => { return (serie.id) == this.idSerie }).titre
+           return this.allSerie.filter((serie) => { return (serie.id) == this.idSerie })
+           
+        },
+        saisonSerie(){
+            return this.allSaison.filter((saison) => { return (saison.id_serie) == this.idSerie })
+        },
+        selectSaison(){
+            if(this.saisonOfserie != ""){
+                return this.allEpisode.filter((episode) => { return ((episode.id_serie) == this.idSerie) && (episode.id_saison === this.saisonOfserie) })
+            }
+        },
+    },
+    methods:{
+
+    },
+    mounted(){
+        this.idSerie = this.$route.params.id;
+        this.serieName = this.$route.params.name;
+    }, 
+    created(){
+        axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/serieName.php'})
+        .then(response => (this.allSerie = response.data))
+        axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/allSaison.php'})
+        .then(response => (this.allSaison = response.data))
+        axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/allEpisode.php'})
+        .then(response => (this.allEpisode = response.data))
+    }
+}
+
 
 const Home = {
     template: '#home', 
@@ -91,7 +187,11 @@ const Home = {
             name: "",
             statu: "",
             allSerie:{},
-            allFilm:{}
+            allFilm:{},
+            actionSerie:{},
+            dramatiqueSerie:{},
+            SFSerie:{},
+            othersSerie:{}
         }
     }, 
     computed: {
@@ -100,17 +200,77 @@ const Home = {
 		},
         statuUser(){
             return this.statu;
+        },
+        serie(){
+            return Array.from(new Set(this.allSerie));
         }
+
+    },
+    methods:{
+
+        // INTERACTION UI/UX FUNCTION
+        next(){
+            $(".containerFilm").append($(".containerFilmBis")[0])
+        },
+        prev(){
+            var contain = $(".containerFilmBis")
+            $(".containerFilm").prepend($(".containerFilmBis")[contain.length-1])
+        },
+
+        nextActionSerie(){
+            $(".containerSerieAction").append($(".containerSerieActionBis")[0])
+        },
+        prevActionSerie(){
+            var contain = $(".containerSerieActionBis")
+            $(".containerSerieAction").prepend($(".containerSerieActionBis")[contain.length-1])
+        },
+
+        nextDrameSerie(){
+            $(".containerSerieDramatique").append($(".containerSerieDramatiqueBis")[0])
+        },
+        prevDrameSerie(){
+            var contain = $(".containerSerieDramatiqueBis");
+            $(".containerSerieDramatique").prepend($(".containerSerieDramatiqueBis")[contain.length-1])
+        },
+        nextOthersSerie(){
+            $(".containerSerieOthers").append($(".containerSerieOthersBis")[0])
+        },
+        prevOthersSerie(){
+            var contain = $(".containerSerieOthersBis");
+            $(".containerSerieOthers").prepend($(".containerSerieOthersBis")[contain.length-1])
+        },
+        nextAllSerie(){
+            $(".containerSerieAll").append($(".containerSerieAllBis")[0])
+        },
+        prevAllSerie(){
+            var contain = $(".containerSerieAllBis");
+            $(".containerSerieAll").prepend($(".containerSerieAllBis")[contain.length-1])
+        }
+
+        
+
     },
     mounted(){
         this.name = this.$root.nom
         this.statu = this.$root.statu
-        // Recuperation des données 
+
         axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/serieName.php'})
        .then(response => (this.allSerie = response.data));
        
        axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/film.php'})
        .then(response => (this.allFilm = response.data));
+
+       axios({ method: 'POST', url: 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/SerieByCategorie.php'})
+       .then(response => (this.actionSerie = response.data));
+
+       axios({ method: 'POST', url: 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/SerieByDrame.php'})
+       .then(response => (this.dramatiqueSerie = response.data));
+
+       axios({ method: 'POST', url: 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/SerieBySF.php'})
+       .then(response => (this.SFSerie = response.data));
+       
+       axios({ method: 'POST', url: 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/SerieByOthers.php'})
+       .then(response => (this.othersSerie = response.data));
     }
 }
 
@@ -119,6 +279,8 @@ const routes = [
     {path: '/Parameter', name:"Parameter", component: Parameter},
     {path: '/Parameter/Gestionfilm', name:"Gestionfilm", component: Gestionfilm},
     {path: '/Home/OneFilm/:id', name:"OneFilm",  component: OneFilm},
+    {path: '/Home/OneSerie/:id/:name', name:"OneSerie",  component: OneSerie},
+    {path: '/Preference/', name:"Preference",  component: Preference}
 ]
 
 const router = new VueRouter({
@@ -128,7 +290,8 @@ const router = new VueRouter({
 const vm = new Vue({
     data:{
             statu: sessionStorage.getItem('statu'),
-            nom: sessionStorage.getItem('name')
+            nom: sessionStorage.getItem('name'),
+            iduser:sessionStorage.getItem('iduser')
     },
     router
 }).$mount('#app_prise')

@@ -20,12 +20,20 @@
             </div>
             <nav class="right">
                 <ul>
-                    <router-link to="/" ><li ><img src="./img/redmenu.png" alt=""></li></router-link>
+                    <li ><img src="./img/redmenu.png" alt="" class="menuAffiche"></li>
                     <router-link to="/" ><li><img src="./img/search.png" alt=""></li></router-link>
-                    <router-link to="/Parameter" ><li><img src="./img/settings.png" alt=""></li></router-link>
-                    
                 </ul>
             </nav>
+        </div>
+        <div class="slid-menu">
+            <ul>
+                <li class="btn-menu"><div class="__btn-menu"><img src="./img/redmenu.png" alt="" class="menuHide"></div></li>
+                <router-link to="/" ><li>Accueil</li></router-link>
+                <router-link to="/Profil" ><li>Profil</li></router-link>
+                <router-link to="/Notification" ><li>Notification</li></router-link>
+                <router-link to="/Parameter" ><li>Paramettre</li></router-link>
+                <router-link to="/Preference" ><li>Préférence</li></router-link>
+            </ul>
         </div>
         <div id="containVue">
             <router-view></router-view>
@@ -34,23 +42,14 @@
 
 
 
-    <script type="text/x-template" id="gestionfilm">
-		<div class="speakOut-Contain">
-			<div class="box_Contain" >
-				<div class="box_speak_out">
-                
-				</div>
-			</div>
-		</div>
-	</script>
-
-
 
     <?php
         include "./Composant/parameter.html";
-        include "./Composant/netflix-animation.html";
+        //include "./Composant/netflix-animation.html";
         include "./Composant/home.html";
         include "./Composant/oneFilm.html";
+        include "./Composant/oneSerie.html";
+        include "./Composant/preference.html";
     ?>
 
 

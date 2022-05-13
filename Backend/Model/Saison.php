@@ -48,6 +48,16 @@
             }
         }
 
+        public function getApiSaison(){
+            $os = new Saison();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT * FROM saison ORDER BY id_serie DESC";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
+
         // REPOSITORY MANAGEMENT
         public function MkdirSaison($serie, $saison){
             if($serie != "" && $saison != ""){

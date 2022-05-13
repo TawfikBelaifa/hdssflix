@@ -27,6 +27,8 @@ $(document).ready(function(){
     $(".msgAdd .echec").hide()
     $(".hideSerie_PrincipalContain").hide()
     $(".addSeance_contain").hide()
+    $(".slid-menu").hide()
+    $(".responseBack .sucess, .responseBack .echec").hide()
 
     //UI/UX Interaction
     $(".switchBtn").on("click",SwitchUILogin);
@@ -114,5 +116,17 @@ $(document).ready(function(){
     var time = setTimeout(function(){
         $(".container").hide()
     }, 4000)
+
+    $(".menuAffiche").on("click", function(){
+        $(".slid-menu").show()
+    })
+
+    $(".menuHide").on("click", function(){
+        $(".slid-menu").hide()
+    })
+
+    $(".slid-menu ul li").on("click", function(){
+        $(".slid-menu").hide()
+    })
 
 })

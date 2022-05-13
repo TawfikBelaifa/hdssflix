@@ -33,6 +33,36 @@
 
         // GETTERS 
 
+        public function getAnne(){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT DISTINCT anne FROM serie ORDER BY anne DESC";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
+
+        public function getRealisateur(){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT DISTINCT realisateur FROM serie ORDER BY id DESC";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
+
+        public function getGenre(){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT DISTINCT genre FROM serie ORDER BY id DESC";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
+
         public function getSerieId($name){
             $os = new Serie();
             if($connexion = ($os->getBDD())){
@@ -43,7 +73,7 @@
             }
         }
 
-        public function getSerieName(){
+        public function getApiSerie(){
             $os = new Serie();
             if($connexion = ($os->getBDD())){
                 $recherche="SELECT * FROM serie WHERE masqued=0 ORDER BY id DESC";
@@ -52,7 +82,47 @@
                 return $tab;
             }
         }
+
+        public function getSerieAction(){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT * FROM serie WHERE masqued=0 AND genre='Action' ORDER BY id DESC LIMIT 9";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
         
+        public function getSerieDrame(){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT * FROM serie WHERE masqued=0 AND genre='Drame' ORDER BY id DESC LIMIT 9";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
+
+        public function getSerieSF(){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT * FROM serie WHERE masqued=0 AND genre='scienceFiction' ORDER BY id DESC LIMIT 9";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
+
+        public function getSerieOthers(){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT * FROM serie WHERE masqued=0 AND genre!='scienceFiction' AND genre!='Drame' AND genre!='Action' ORDER BY id DESC LIMIT 9";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
+
         // OTHERS 
 
         public function masqueSerie($idSerie){

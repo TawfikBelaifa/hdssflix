@@ -25,6 +25,7 @@
 body{
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
 }
 
 *{
@@ -37,6 +38,8 @@ body{
 @import url('./Parameter.less');
 @import url('./Home.less');
 @import url('./OneSerie.less');
+@import url('./SerieChoose.less');
+@import url('./preference.less');
 
 /* CSS Files Importation */
 

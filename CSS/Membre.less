@@ -19,13 +19,14 @@ body{
                 margin: 0;
                 width: 100%;
                 display: flex;
-                justify-content: space-between;
+                justify-content: space-around;
             }
         
             li{
                 padding: 10px 0;
                 img{
                     width: 20px;
+                    cursor: pointer;
                 }
             }
         
@@ -50,5 +51,47 @@ body{
 
     #containVue{
         color: var(--palette-text-color);
+    }
+
+    .slid-menu{
+
+        display: flex;
+        justify-content: flex-end;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,.7);
+        color: white;
+        z-index: 1000;
+
+        ul{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 390px;
+            list-style: none;
+            background-color: #231717;
+            li{
+                padding: 19px;
+                font-family: var(--fontFamilly);
+                font-size: 24px;
+                color: white;
+                cursor: pointer;
+                transition: .9s opacity;
+                img{
+                    width: 47px;
+                    cursor: pointer;
+                }
+            }
+            li:hover{
+                background-color: rgba(0,0,0,1);
+            }
+            .btn-menu{
+                text-align: right;
+            }
+        }
     }
 }
