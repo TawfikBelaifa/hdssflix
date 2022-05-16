@@ -104,9 +104,9 @@
         </div>
 
         <div class="princpalContainFilm recomandation" >
-            <div class="titleTop">Recommandations</div>
+            <div class="titleTop">Recommandations de série</div>
             <div class="containerSerie recomandationAll">
-                <div v-for="serie in othersSerie" class="containerSerieBis recomandationBis">
+                <div v-for="serie in serieRecommanded" class="containerSerieBis recomandationBis">
                     <router-link :to="{ name: 'OneSerie', params: { id: serie.id, name : serie.titre } }" >
                     <div class="afficheSerie">
                         <div class="imgAffiche">

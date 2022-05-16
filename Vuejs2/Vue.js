@@ -184,6 +184,7 @@ const Home = {
     name: 'Home',
     data: () => {
         return {
+            iduser:null,
             name: "",
             statu: "",
             allSerie:{},
@@ -191,7 +192,8 @@ const Home = {
             actionSerie:{},
             dramatiqueSerie:{},
             SFSerie:{},
-            othersSerie:{}
+            othersSerie:{},
+            serieRecommanded: {}
         }
     }, 
     computed: {
@@ -247,13 +249,17 @@ const Home = {
             $(".containerSerieAll").prepend($(".containerSerieAllBis")[contain.length-1])
         }
 
+
         
 
     },
     mounted(){
         this.name = this.$root.nom
         this.statu = this.$root.statu
+        this.iduser = this.$root.iduser
 
+        var mesDonnees = new FormData();
+        mesDonnees.set("iduser", this.iduser);
         axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/serieName.php'})
        .then(response => (this.allSerie = response.data));
        
@@ -271,6 +277,12 @@ const Home = {
        
        axios({ method: 'POST', url: 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/SerieByOthers.php'})
        .then(response => (this.othersSerie = response.data));
+        
+        var id = this.$root.iduser
+        axios.post('http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/serieRcommanded.php',JSON.stringify({ 'userid': id }))
+        .then(response => (this.serieRecommanded = response.data))
+
+
     }
 }
 

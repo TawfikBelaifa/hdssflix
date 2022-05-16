@@ -45,7 +45,7 @@
 
     <?php
         include "./Composant/parameter.html";
-        //include "./Composant/netflix-animation.html";
+        include "./Composant/netflix-animation.html";
         include "./Composant/home.html";
         include "./Composant/oneFilm.html";
         include "./Composant/oneSerie.html";

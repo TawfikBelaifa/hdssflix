@@ -1,4 +1,7 @@
 <?php
+
+use LDAP\Result;
+
     class Serie extends Connexion{
 
         function __construct(){
@@ -31,7 +34,31 @@
         }
 
 
-        // GETTERS 
+        // GETTERS
+        
+        public function getRecommandedSerie($idUser){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $result = $os->getRecommandationUsers($idUser);
+                $genr = $result['genre'];
+                $an = $result['annee'];
+                $realisateur = $result['realisateur'];
+                $recherche="SELECT * FROM serie WHERE genre='$genr' OR realisateur='$realisateur' OR anne='$an'";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
+
+        public function getRecommandationUsers($idUser){
+            $os = new Serie();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT * FROM preference WHERE id_user='$idUser'";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetch();
+                return $tab;
+            }
+        }
 
         public function getAnne(){
             $os = new Serie();
