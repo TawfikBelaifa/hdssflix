@@ -40,6 +40,7 @@ body{
 @import url('./OneSerie.less');
 @import url('./SerieChoose.less');
 @import url('./preference.less');
+@import url('./reservation.less');
 
 /* CSS Files Importation */
 

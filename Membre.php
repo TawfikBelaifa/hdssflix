@@ -33,6 +33,7 @@
                 <router-link to="/Notification" ><li>Notification</li></router-link>
                 <router-link to="/Parameter" ><li>Paramettre</li></router-link>
                 <router-link to="/Preference" ><li>Préférence</li></router-link>
+                <router-link to="/Reservation" ><li>Reservation</li></router-link>
             </ul>
         </div>
         <div id="containVue">
@@ -45,11 +46,12 @@
 
     <?php
         include "./Composant/parameter.html";
-        include "./Composant/netflix-animation.html";
+        //include "./Composant/netflix-animation.html";
         include "./Composant/home.html";
         include "./Composant/oneFilm.html";
         include "./Composant/oneSerie.html";
         include "./Composant/preference.html";
+        include "./Composant/reservation.html";
     ?>
 
 

@@ -1,6 +1,22 @@
 
 // Component Part
 
+const Reservation = {
+    template: '#reservation', 
+    name: 'Reservation',
+    data: () => {
+        return {
+            
+        }
+    }, 
+    computed: {
+        
+    },
+    mounted(){
+    
+    }
+}
+
 const Gestionfilm = {
     template: '#gestionfilm', 
     name: 'Gestionfilm',
@@ -218,7 +234,6 @@ const Home = {
             var contain = $(".containerFilmBis")
             $(".containerFilm").prepend($(".containerFilmBis")[contain.length-1])
         },
-
         nextActionSerie(){
             $(".containerSerieAction").append($(".containerSerieActionBis")[0])
         },
@@ -226,7 +241,6 @@ const Home = {
             var contain = $(".containerSerieActionBis")
             $(".containerSerieAction").prepend($(".containerSerieActionBis")[contain.length-1])
         },
-
         nextDrameSerie(){
             $(".containerSerieDramatique").append($(".containerSerieDramatiqueBis")[0])
         },
@@ -247,8 +261,21 @@ const Home = {
         prevAllSerie(){
             var contain = $(".containerSerieAllBis");
             $(".containerSerieAll").prepend($(".containerSerieAllBis")[contain.length-1])
+        },
+        nextAllSerieOthers(){
+            $(".containerSerieOthers2").append($(".containerSerieOthers2Bis")[0])
+        },
+        prevAllSerieOthers(){
+            var contain = $(".containerSerieOthers2Bis");
+            $(".containerSerieOthers2").prepend($(".containerSerieOthers2Bis")[contain.length-1])
+        },
+        nextRecommendedSeries(){
+            $(".recomandationAll").append($(".recomandationBis")[0])
+        }, 
+        prevRecommendedSeries(){
+            var contain = $(".recomandationBis");
+            $(".recomandationAll").prepend($(".recomandationBis")[contain.length-1])
         }
-
 
         
 
@@ -292,7 +319,8 @@ const routes = [
     {path: '/Parameter/Gestionfilm', name:"Gestionfilm", component: Gestionfilm},
     {path: '/Home/OneFilm/:id', name:"OneFilm",  component: OneFilm},
     {path: '/Home/OneSerie/:id/:name', name:"OneSerie",  component: OneSerie},
-    {path: '/Preference/', name:"Preference",  component: Preference}
+    {path: '/Preference/', name:"Preference",  component: Preference},
+    {path: '/Reservation/', name:"Reservation",  component: Reservation}
 ]
 
 const router = new VueRouter({

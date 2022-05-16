@@ -3,7 +3,6 @@
 
     $pos = new Serie();
     $data = json_decode(file_get_contents("php://input"), true);
-    $task = $data['userid'];
-    $API = $pos->getRecommandedSerie($task);
+    $API = $pos->getRecommandedSerie($data['userid']);
     echo json_encode($API);
 ?>

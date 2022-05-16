@@ -87,8 +87,8 @@
         </div>
         <div class="princpalContainFilm othersSerie" >
             <div class="titleTop">Autres Séries</div>
-            <div class="containerSerie containerSerieAll">
-                <div v-for="serie in othersSerie" class="containerSerieBis containerSerieAllBis">
+            <div class="containerSerie containerSerieOthers2">
+                <div v-for="serie in othersSerie" class="containerSerieBis containerSerieOthers2Bis">
                     <router-link :to="{ name: 'OneSerie', params: { id: serie.id, name : serie.titre } }" >
                     <div class="afficheSerie">
                         <div class="imgAffiche">
@@ -99,8 +99,8 @@
                     </router-link>
                 </div>
             </div>
-            <div class="rightclick arrow-click" @click="nextAllSerie()"><img src="./img/right-arrow.png" alt="" srcset=""></div>
-            <div class="leftclick arrow-click" @click="prevAllSerie()"><img src="./img/left-arrow.png" alt="" srcset=""></div>
+            <div class="rightclick arrow-click" @click="nextAllSerieOthers()"><img src="./img/right-arrow.png" alt="" srcset=""></div>
+            <div class="leftclick arrow-click" @click="prevAllSerieOthers()"><img src="./img/left-arrow.png" alt="" srcset=""></div>
         </div>
 
         <div class="princpalContainFilm recomandation" >
@@ -117,8 +117,8 @@
                     </router-link>
                 </div>
             </div>
-            <div class="rightclick arrow-click" @click="nextAllSerie()"><img src="./img/right-arrow.png" alt="" srcset=""></div>
-            <div class="leftclick arrow-click" @click="prevAllSerie()"><img src="./img/left-arrow.png" alt="" srcset=""></div>
+            <div class="rightclick arrow-click" @click="nextRecommendedSeries()"><img src="./img/right-arrow.png" alt="" srcset=""></div>
+            <div class="leftclick arrow-click" @click="prevRecommendedSeries()"><img src="./img/left-arrow.png" alt="" srcset=""></div>
         </div>
     </div>
 </script>
