@@ -32,8 +32,14 @@
 
         }
 
-        public function getAllSeance(){
-
+        public function getSeanceApi($movie){
+            $os = new Seance();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT * FROM seance WHERE film='$movie'";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
         }
 
         // UPDATE

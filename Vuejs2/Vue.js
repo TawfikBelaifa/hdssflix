@@ -10,28 +10,47 @@ const Reservation = {
             navigation:'',
             filmChoosed:'',
             searched:'',
-            choose:''
+            choose:'',
+            searchDone:'',
+            reservationDispo:{},
+            filtredFilm:{}
         }
     }, 
     computed: {
         oneFilm(){
-            if(this.filmChoosed != '' ){
-                return  this.allFilm.filter((film) => {
-                    return film.titre.toLowerCase().includes(this.filmChoosed.toLowerCase())
-                })
+            if(this.filmChoosed != '' /*&& this.searchDone != "yes"*/){
+                
             }
-            if(this.searched != ''){
+            if(this.searched != '' /*&& this.searchDone != "yes"*/){
                 return  this.allFilm.filter((film) => {
                     return film.titre.toLowerCase().includes(this.searched.toLowerCase())
                 })
+            }
+            if(this.searchDone != "yes"){
+                console.log("in seacheDone")
+                return this.allFilm
+                
             }
             return this.allFilm;
         }
     },
     methods:{
         choiceFilm(titre){
+            console.log(titre)
+            var titre = titre
             this.filmChoosed=titre
             this.choose="yes"
+            this.searchDone="yes"
+            axios.post('http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/allSeance.php',JSON.stringify({ 'nameFilm': titre }))
+            .then(response => (this.reservationDispo = response.data))
+
+            this.filtredFilm =   this.allFilm.filter((film) => {
+                return film.titre.toLowerCase().includes(this.filmChoosed.toLowerCase())
+            })
+        },
+        exitChoice(){
+            this.choose=""
+            this.searchDone=""
         }
     },
     mounted(){
