@@ -6,14 +6,37 @@ const Reservation = {
     name: 'Reservation',
     data: () => {
         return {
-            
+            allFilm:[],
+            navigation:'',
+            filmChoosed:'',
+            searched:'',
+            choose:''
         }
     }, 
     computed: {
-        
+        oneFilm(){
+            if(this.filmChoosed != '' ){
+                return  this.allFilm.filter((film) => {
+                    return film.titre.toLowerCase().includes(this.filmChoosed.toLowerCase())
+                })
+            }
+            if(this.searched != ''){
+                return  this.allFilm.filter((film) => {
+                    return film.titre.toLowerCase().includes(this.searched.toLowerCase())
+                })
+            }
+            return this.allFilm;
+        }
+    },
+    methods:{
+        choiceFilm(titre){
+            this.filmChoosed=titre
+            this.choose="yes"
+        }
     },
     mounted(){
-    
+        axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/film.php'})
+        .then(response => (this.allFilm = response.data));
     }
 }
 

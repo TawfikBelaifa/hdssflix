@@ -1,50 +1,71 @@
 <script type="text/x-template" id="reservation">
-    <div class="reservationBox">
-        <div class="top">
-            Reservation
-        </div>
-        <div class="searchBox">
-            <select name="search" id="searchReservation" >
-                <option value="Film">Film</option>
-                <option value="Serie">Serie</option>
-            </select>
-            <select name="search" id="searchReservation" >
-                <option value="Twilight">Twilight</option>
-                <option value="Transformers">Transformers</option>
-            </select>
-            <div class="searchBoxbis">
-                <input type="text" placeholder="Recherche rapide" id="serchesze"> <img src="./img/search.png" alt="">
+    <div id="containGenralReservation">
+        
+        <div class="reservationBox">
+            <div class="top">
+                Reservation
             </div>
-        </div>
-        <div class="center">
-            <div class="center-top">
-                <div class="left">
-                    <div class="affiche">
-                        <img src="./movieFilm/Insidious Chapitre II/images (9).jfif" alt="" srcset="">
-                    </div>
-                    <div class="info">
-                        <div class="titre">Viking</div>
-                        <div class="acteur">
-                            <ul>
-                                <li>Jim Prinston</li>
-                                <li>Jamie Foxx</li>
-                                <li>Anita Gibbs</li>
-                            </ul>
-                        </div>
-                        <div class="resum">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid autem quam dolores suscipit sit. Odit voluptatem eos quisquam laboriosam mollitia cumque modi rem accusantium molestiae?
-                        </div>
-                        <div class="dateSortie">
-                            23 Décembre 2015
+            <div class="searchBox">
+                <div class="searchBoxbis">
+                    <input type="text" placeholder="Recherche rapide" id="serchesze" v-model="searched"> <img src="./img/search.png" alt="">
+                </div>
+            </div>
+            <div class="center">
+                <div class="filmToReserve">
+                    <div class="containerSerie containerFilm">
+                        <div v-for="film in oneFilm" class="containerFilmBis">
+                            <div class="afficheSerie" @click="choiceFilm(film.titre)">
+                                <div class="imgAffiche">
+                                    <img v-bind:src="'./movieFilm/'+film.titre+'/'+film.image" alt="" srcset="">
+                                </div>
+                                <div class="nameSerie">{{film.titre}}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="right">
-                    <div class="date"></div>
-                    <div class="hourNformat"></div>
+                <div class="center-top" v-if="choose == 'yes'">
+                    <div class="left" v-for="film in oneFilm">
+                        <div class="affiche">
+                            <img v-bind:src="'./movieFilm/'+film.titre+'/'+film.image" alt="" srcset="">
+                        </div>
+                        <div class="info">
+                            <div class="titre">{{film.titre}}</div>
+                            <div class="acteur">
+                                <ul>
+                                    <li>Jim Prinston</li>
+                                    <li>Jamie Foxx</li>
+                                    <li>Anita Gibbs</li>
+                                </ul>
+                            </div>
+                            <div class="resum">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid autem quam dolores suscipit sit. Odit voluptatem eos quisquam laboriosam mollitia cumque modi rem accusantium molestiae?
+                            </div>
+                            <div class="dateSortie">
+                                23 Décembre 2015
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="principalContainRight">
+                            <div class="date rightleft">
+                                <div class="contain-date">
+                                    <div id="day-seance">Mardi</div>
+                                    <div id="date-seance">03/05</div>
+                                </div>
+                            </div>
+                            <div class="hourNformat rightright">
+                                <div class="contain-HNF">
+                                    <div id="hour">10h</div>
+                                    <div id="format">3d</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <input type="submit" value="Valider Reservation">
+                    </div>
                 </div>
             </div>
-            <div class="bottom"></div>
         </div>
     </div>
 </script>
