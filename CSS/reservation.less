@@ -55,13 +55,18 @@
         .center{
             
             .center-top{
-                display: flex;
+                display: block;
                 position: relative;
+                border: 1px solid rgba(229, 9, 20, 0.5);
+                margin: 18px;
+                border-radius: 3px;
+                width: 100%;
 
                 .closeIcon{
                     position: absolute;
                     width: 25px;
-                    right: 0;
+                    right: 20px;
+                    top: 20px;
                     cursor: pointer;
                 }
 
@@ -100,20 +105,25 @@
                 }
                 .right{
                     margin-left: 50px;
-                    margin-top: 140px;
+                    margin-top: 20px;
                     border: 0.1px solid rgba(229,9,20,0.15);
                     border-radius: 22px;
                     background: rgba(229,9,20,0.15);
                     min-width: 500px;
-                    height: min-content;
+                    height: fit-content;
+                    width: fit-content;
                     .principalContainRight{
                         display: flex;
+                        width: auto;
+                        height: fit-content;
+                        border-bottom: 1px solid rgba(229, 9, 20, 0.4);
                         .date{
-                            padding: 20px;
+                            
                             border-right: 1px solid var(--palette-bgc-color);
                             min-width: 145px;
+                            width: 220px;
                             .contain-date{
-                                padding: 10px;
+                                
                                 #day-seance{
                                     padding: 5px;
                                     font-size: 28px;
@@ -127,10 +137,14 @@
                         }
     
                         .hourNformat{
-                            padding: 20px;
+                            
                             display: flex;
                             .contain-HNF{
-                                padding: 10px;
+                                border-right: 1px solid rgba(229, 9, 20, 0.4);
+                                width: 135px;
+                                text-align: center;
+                                position: relative;
+                                cursor: pointer;
                                 #hour{
                                     padding: 5px;
                                     font-size: 28px;
@@ -139,14 +153,22 @@
                                     padding: 5px;
                                     text-align: center;
                                 }
+                                input[type=checkbox]{
+                                    width: 0;
+                                    height: 0;
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                }
                             }
                         }
                     }
                 }
                 .bottom{
-                    position: absolute;
-                    top: 80%;
-                    left: 435px;
+                    display: flex;
+                    justify-content: center;
                 }
             }
         }

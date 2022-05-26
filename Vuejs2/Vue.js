@@ -13,7 +13,10 @@ const Reservation = {
             choose:'',
             searchDone:'',
             reservationDispo:{},
-            filtredFilm:{}
+            resverationDate:{},
+            filtredFilm:{},
+            choiceSeance:[],
+            donnees:""
         }
     }, 
     computed: {
@@ -41,16 +44,39 @@ const Reservation = {
             this.filmChoosed=titre
             this.choose="yes"
             this.searchDone="yes"
+            axios.post('http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/dateSeance.php',JSON.stringify({ 'nameFilm': titre }))
+            .then(response => (this.resverationDate = response.data))
+
             axios.post('http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/allSeance.php',JSON.stringify({ 'nameFilm': titre }))
             .then(response => (this.reservationDispo = response.data))
 
-            this.filtredFilm =   this.allFilm.filter((film) => {
+            this.filtredFilm = this.allFilm.filter((film) => {
                 return film.titre.toLowerCase().includes(this.filmChoosed.toLowerCase())
             })
         },
         exitChoice(){
             this.choose=""
             this.searchDone=""
+        },
+        reserver(){
+            var tab = new Array();
+            this.donnees = "iduser="+this.$root.iduser;
+            for(var i=0; i<this.choiceSeance.length; i++){
+                tab.push(this.choiceSeance[i].split("_"))
+            }
+            for(var i=0; i<tab.length; i++){
+                this.donnees = this.donnees + "&heure"+i+"="+tab[i][0]+"&date"+i+"="+tab[i][1];
+            }
+
+            $.ajax({
+                url : 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/addPreference.php',
+                method: "GET",
+                data: this.données,
+                datatype: "json",
+                cache: false,
+                contentType: false,
+                processData: false,
+            })
         }
     },
     mounted(){

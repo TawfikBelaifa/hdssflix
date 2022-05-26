@@ -34,28 +34,36 @@
                             </div>
                         </div>
                     </div>
+                
+                <div style="display:flex; align-items:center; justify-content:center;">
+
+                    
                     <div class="right">
-                        <div class="principalContainRight">
+                        <div class="principalContainRight" v-for=" disp in resverationDate ">
                             <div class="date rightleft">
                                 <div class="contain-date">
-                                    <div id="day-seance">Mardi</div>
+                                    <div id="day-seance">{{disp.date}}</div>
                                     <div id="date-seance">03/05</div>
-                                </div>
+                                </div> 
                             </div>
-                            <div class="hourNformat rightright">
-                                <div class="contain-HNF">
-                                    <div id="hour">10h</div>
-                                    <div id="format">3d</div>
+                            <div class="hourNformat rightright" v-for=" dispos in reservationDispo " v-if="disp.date == dispos.date && disp.film == dispos.film">
+                                <div class="contain-HNF" >
+                                    
+                                    <label v-bind:for="'seance_'+dispos.heure+'_'+dispos.date" class="hourFormat">
+                                        <div id="hour">{{dispos.heure}}</div>
+                                        <div id="format">{{dispos.format}}</div>
+                                    </label>
+                                    <input type="checkbox" name="seance" v-bind:id="'seance_'+dispos.heure+'_'+dispos.date" v-bind:value="dispos.heure+'_'+disp.date" v-model="choiceSeance">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="bottom">
-                        <input type="submit" value="Valider Reservation">
+                        
                     </div>
                 </div>
-
-
+                    <div class="bottom">
+                        <input type="submit" value="Valider Reservation" @click="reserver()">
+                    </div>
+                </div>
                 <div class="filmToReserve" >
                     <div class="containerSerie containerFilm">
                         <div v-for="film in oneFilm" class="containerFilmBis">

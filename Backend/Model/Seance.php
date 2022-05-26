@@ -42,6 +42,17 @@
             }
         }
 
+        public function getSeanceApiDateseance($movie){
+            $os = new Seance();
+            if($connexion = ($os->getBDD())){
+                $recherche="SELECT DISTINCT date, film FROM seance WHERE film='$movie'";
+				$result=$connexion->query($recherche);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
+
+
         // UPDATE
 
         public function update(){
