@@ -36,8 +36,6 @@
                     </div>
                 
                 <div style="display:flex; align-items:center; justify-content:center;">
-
-                    
                     <div class="right">
                         <div class="principalContainRight" v-for=" disp in resverationDate ">
                             <div class="date rightleft">
@@ -46,14 +44,14 @@
                                     <div id="date-seance">03/05</div>
                                 </div> 
                             </div>
-                            <div class="hourNformat rightright" v-for=" dispos in reservationDispo " v-if="disp.date == dispos.date && disp.film == dispos.film">
+                            <div class="hourNformat rightright" v-for=" (dispos,index) in reservationDispo " v-if="disp.date == dispos.date && disp.film == dispos.film">
                                 <div class="contain-HNF" >
                                     
-                                    <label v-bind:for="'seance_'+dispos.heure+'_'+dispos.date" class="hourFormat">
+                                    <label v-bind:for="'seance_'+dispos.heure+'_'+dispos.date" class="hourFormat" @click="timeReserved('seance_'+dispos.heure+'_'+dispos.date)">
                                         <div id="hour">{{dispos.heure}}</div>
                                         <div id="format">{{dispos.format}}</div>
                                     </label>
-                                    <input type="checkbox" name="seance" v-bind:id="'seance_'+dispos.heure+'_'+dispos.date" v-bind:value="dispos.heure+'_'+disp.date" v-model="choiceSeance">
+                                    <input type="checkbox" name="seance" v-bind:id="'seance_'+dispos.heure+'_'+dispos.date" v-bind:value="dispos.heure+'_'+disp.date" v-model="choiceSeance" :class="'seance_'+index" class="timeReserved">
                                 </div>
                             </div>
                         </div>

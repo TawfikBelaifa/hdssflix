@@ -58,7 +58,12 @@ const Reservation = {
             this.choose=""
             this.searchDone=""
         },
+        timeReserved(data){
+            console.log(data)
+           console.log($("#"+data))
+        },
         reserver(){
+            console.log("click")
             var tab = new Array();
             this.donnees = "iduser="+this.$root.iduser;
             for(var i=0; i<this.choiceSeance.length; i++){
@@ -67,7 +72,8 @@ const Reservation = {
             for(var i=0; i<tab.length; i++){
                 this.donnees = this.donnees + "&heure"+i+"="+tab[i][0]+"&date"+i+"="+tab[i][1];
             }
-
+            console.log(this.donnees)
+            
             $.ajax({
                 url : 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/addPreference.php',
                 method: "GET",

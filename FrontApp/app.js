@@ -129,4 +129,8 @@ $(document).ready(function(){
         $(".slid-menu").hide()
     })
 
+    $(".hourFormat").on("click", function(){
+        console.log("this")
+    })
+
 })
