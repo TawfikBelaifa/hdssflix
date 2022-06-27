@@ -16,6 +16,11 @@
   background-color: #000;
 }
 
+.titleAnnimation img{
+  width: 410px;
+  margin-top: 25px;
+}
+
 .name-app{
   position: fixed;
   top: 20px;
@@ -32,6 +37,7 @@
   overflow: hidden;
   height: 520px;
   width: 360px;
+  margin-bottom: 25px;
 }
 .logo .uno, .logo .due, .logo .tre{
   position: absolute;
@@ -76,9 +82,9 @@
   font-family: 'Fredericka the Great', cursive;
   font-family: 'Cinzel Decorative', cursive;
   font-family: 'Syncopate', sans-serif;
-  border-bottom: 1px solid;
+  border-top: 1px solid;
   width: 80vw;
-  text-align: center;
+  text-align: left;
 }
 
 

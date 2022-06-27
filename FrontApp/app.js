@@ -133,4 +133,12 @@ $(document).ready(function(){
         console.log("this")
     })
 
+    $(".navreservation").on("click", function(e){
+        $(".addredBGC").toggleClass("addredBGC")
+        $(this).toggleClass("addredBGC")
+    })
+    setInterval(function(){
+        $("body").css("overflow-y","visible")
+    }, 5000)
+
 })

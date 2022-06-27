@@ -3,7 +3,13 @@
         
         <div class="reservationBox">
             <div class="top">
-                Reservation
+                <nav>
+                    <ul>
+                        <li class="reserver navreservation addredBGC">Réserver</li>
+                        <li class="mesreserv navreservation">Mes reservations</li>
+                        <li class="reservannul navreservation">Reservations annulées</li>
+                    </ul>
+                </nav>
             </div>
             <div class="searchBox">
                 <div class="searchBoxbis">
@@ -41,17 +47,17 @@
                             <div class="date rightleft">
                                 <div class="contain-date">
                                     <div id="day-seance">{{disp.date}}</div>
-                                    <div id="date-seance">03/05</div>
+                                    <!-- <div id="date-seance">03/05</div> -->
                                 </div> 
                             </div>
                             <div class="hourNformat rightright" v-for=" (dispos,index) in reservationDispo " v-if="disp.date == dispos.date && disp.film == dispos.film">
-                                <div class="contain-HNF" >
+                                <div class="contain-HNF" :id="'HNF_seance_'+dispos.film+'_'+index">
                                     
-                                    <label v-bind:for="'seance_'+dispos.heure+'_'+dispos.date" class="hourFormat" @click="timeReserved('seance_'+dispos.heure+'_'+dispos.date)">
+                                    <label v-bind:for="'seance_'+dispos.film+'_'+index" class="hourFormat" @click="timeReserved('HNF_seance_'+dispos.film+'_'+index)">
                                         <div id="hour">{{dispos.heure}}</div>
                                         <div id="format">{{dispos.format}}</div>
                                     </label>
-                                    <input type="checkbox" name="seance" v-bind:id="'seance_'+dispos.heure+'_'+dispos.date" v-bind:value="dispos.heure+'_'+disp.date" v-model="choiceSeance" :class="'seance_'+index" class="timeReserved">
+                                    <input type="checkbox" name="seance" v-bind:id="'seance_'+dispos.film+'_'+index" :value="disp.date+'_'+dispos.heure" v-model="choiceSeance" class="timeReserved" >
                                 </div>
                             </div>
                         </div>

@@ -60,24 +60,24 @@ const Reservation = {
         },
         timeReserved(data){
             console.log(data)
-           console.log($("#"+data))
+           $("#"+data).toggleClass("addredBGC")
         },
         reserver(){
             console.log("click")
             var tab = new Array();
-            this.donnees = "iduser="+this.$root.iduser;
+            this.donnees = "iduser="+this.$root.iduser+"&film="+this.filmChoosed;
             for(var i=0; i<this.choiceSeance.length; i++){
                 tab.push(this.choiceSeance[i].split("_"))
             }
             for(var i=0; i<tab.length; i++){
-                this.donnees = this.donnees + "&heure"+i+"="+tab[i][0]+"&date"+i+"="+tab[i][1];
+                this.donnees = this.donnees + "&heure"+i+"="+tab[i][1]+"&date"+i+"="+tab[i][0];
             }
             console.log(this.donnees)
             
             $.ajax({
-                url : 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/addPreference.php',
+                url : 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/addReservation.php',
                 method: "GET",
-                data: this.données,
+                data: this.donnees,
                 datatype: "json",
                 cache: false,
                 contentType: false,

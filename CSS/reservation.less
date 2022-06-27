@@ -11,6 +11,24 @@
             font-family: var(--fontFamilly);
             font-size: 30px;
             padding: 10px;
+            nav{
+                border-top: 1px solid var(--palette-bgc-color);
+                ul{
+                    list-style: none;
+                    display: flex;
+                    color: #fff;
+                    padding: 0;
+                    margin: 0;
+                    li{
+                        padding: 10px 20px;
+                        cursor: pointer;
+                        margin-right: 5px;
+                    }
+                    li:nth-child(1){
+                       
+                    }
+                }
+            }
     
         }
         .searchBox{
@@ -118,7 +136,9 @@
                         height: fit-content;
                         border-bottom: 1px solid rgba(229, 9, 20, 0.4);
                         .date{
-                            
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
                             border-right: 1px solid var(--palette-bgc-color);
                             min-width: 145px;
                             width: 220px;

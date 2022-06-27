@@ -26,7 +26,22 @@ body{
     padding: 0;
     margin: 0;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
+
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+body::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--palette-bgc-color);
+    border-radius: 10px;
+}
+  
 
 *{
     box-sizing: border-box;
@@ -49,6 +64,8 @@ body{
 a{
     text-decoration: none;
 }
-
+.addredBGC{
+    background-color: #E50914;
+}
 
 

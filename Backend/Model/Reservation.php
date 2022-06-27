@@ -11,13 +11,11 @@
             return $connexion;
         }
 
-        function reserver(){
-            $os = new Reservation();
+        public function addReservation($film,$date,$heure,$iduser){
+            $os = new Seance();
             if($connexion = ($os->getBDD())){
                 $film=$connexion->quote($film);
-                $format=$connexion->quote($format);
-                $salle=$connexion->quote($salle);
-                $requete="INSERT INTO seance (id,film,date,heure,format,salle) VALUES ('', $film, '$date','$heure',$format,$salle)";
+                $requete="INSERT INTO reservation (id,id_user,date,heure,film) VALUES ('',$iduser, '$date','$heure',$film)";
                 $insertion=$connexion->exec($requete);
             }
         }

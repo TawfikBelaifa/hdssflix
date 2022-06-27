@@ -38,7 +38,7 @@
         public function getAPI(){
             $os = new Film();
             if($connexion = ($os->getBDD())){
-                $requete = "SELECT * FROM film WHERE masqued=0 ORDER BY id ASC Limit 9";
+                $requete = "SELECT * FROM film WHERE masqued=0 ORDER BY id ASC Limit 70";
                 $result=$connexion->query($requete);
 				$tab=$result->fetchAll(PDO::FETCH_OBJ);
                 return $tab;

@@ -1,15 +1,28 @@
 body{
     background-color: var(--palette-bd-color);
     .header{
-        font-family: var(--fontFamilly);
-        width: 100%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
         height: 50px;
+        font-family: var(--fontFamilly);
         display: flex;
         justify-content: space-between;
         align-items: center;
         color: var(--palette-text-color);
         background-color: var(--palette-head-color);
         padding: 0 20px;
+        z-index: 1;
+        margin-bottom: 20px;
+        .left{
+            .logoApp{
+                img{
+                    width: 138px;
+                    margin-top: 4.5px;
+                }
+            }
+        }
         .right{
             width: 100px;
 

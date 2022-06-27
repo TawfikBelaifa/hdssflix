@@ -9,6 +9,7 @@
         include "../Model/Film.php";
         include "../Model/Seance.php";
         include "../Model/Preference.php";
+        include "../Model/Reservation.php";
     }
 
     if(basename(dirname($_SERVER['SCRIPT_NAME'])) == "Data" ){
@@ -21,6 +22,7 @@
         include "../../Model/Film.php";
         include "../../Model/Seance.php";
         include "../../Model/Preference.php";
+        include "../../Model/Reservation.php";
     }
 
     if(basename(dirname($_SERVER['SCRIPT_NAME'])) == "preference" ){
@@ -33,6 +35,7 @@
         include "../../../Model/Film.php";
         include "../../../Model/Seance.php";
         include "../../../Model/Preference.php";
+        include "../../../Model/Reservation.php";
     }
 
     

@@ -15,8 +15,9 @@
     <div id="app_prise">
         <div class="header">
             <div class="left">
-                <div class="logoApp">HDSSFLIX</div>
                 <div v-if="statu == 1" class="statu">Admin</div>
+                <div class="logoApp"><img src="./img/hdssflix_logo_4.png" alt="" srcset=""></div>
+                
             </div>
             <nav class="right">
                 <ul>
@@ -46,7 +47,7 @@
 
     <?php
         include "./Composant/parameter.html";
-        //include "./Composant/netflix-animation.html";
+        include "./Composant/netflix-animation.html";
         include "./Composant/home.html";
         include "./Composant/oneFilm.html";
         include "./Composant/oneSerie.html";
