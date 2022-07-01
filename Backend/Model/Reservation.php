@@ -19,5 +19,15 @@
                 $insertion=$connexion->exec($requete);
             }
         }
+
+        public function getReservationById($id){
+            $os = new Seance();
+            if($connexion = ($os->getBDD())){
+                $requete = "SELECT * FROM reservation r, film f, seance s WHERE r.film=f.titre AND r.film=s.film AND r.date=s.date AND r.heure=s.heure AND id_user=$id";
+                $result=$connexion->query($requete);
+				$tab=$result->fetchAll(PDO::FETCH_OBJ);
+                return $tab;
+            }
+        }
     }
 ?>

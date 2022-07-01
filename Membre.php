@@ -21,8 +21,9 @@
             </div>
             <nav class="right">
                 <ul>
-                    <li ><img src="./img/redmenu.png" alt="" class="menuAffiche"></li>
+                    <li><img id="messengerImg" src="./img/facebook-messenger.png" alt="" srcset=""></li>
                     <router-link to="/" ><li><img src="./img/search.png" alt=""></li></router-link>
+                    <li ><img src="./img/redmenu.png" alt="" class="menuAffiche"></li>
                 </ul>
             </nav>
         </div>
@@ -47,7 +48,7 @@
 
     <?php
         include "./Composant/parameter.html";
-        include "./Composant/netflix-animation.html";
+        //include "./Composant/netflix-animation.html";
         include "./Composant/home.html";
         include "./Composant/oneFilm.html";
         include "./Composant/oneSerie.html";

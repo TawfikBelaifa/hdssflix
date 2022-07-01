@@ -1,86 +1,126 @@
 <script type="text/x-template" id="reservation">
     <div id="containGenralReservation">
         
-        <div class="reservationBox">
+        <div class="reservationBox" >
             <div class="top">
                 <nav>
                     <ul>
-                        <li class="reserver navreservation addredBGC">Réserver</li>
-                        <li class="mesreserv navreservation">Mes reservations</li>
-                        <li class="reservannul navreservation">Reservations annulées</li>
+                        <li class="reserver navreservation addredBGC" @click="menuBarr('reserver')" id="reserver">Réserver</li>
+                        <li class="mesreserv navreservation" @click="menuBarr('mesreservations')" id="mesreservations">Mes reservations</li>
+                        <li class="reservannul navreservation" @click="menuBarr('reservannle')" id="reservannle">Reservations annulées</li>
                     </ul>
                 </nav>
             </div>
-            <div class="searchBox">
-                <div class="searchBoxbis">
-                    <input type="text" placeholder="Recherche rapide" id="serchesze" v-model="searched"> <img src="./img/search.png" alt="">
+            <div v-if="menuBar == 'reserver'">
+                <div class="searchBox">
+                    <div class="searchBoxbis">
+                        <input type="text" placeholder="Recherche rapide" id="serchesze" v-model="searched"> <img src="./img/search.png" alt="">
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="center-top" v-if="choose == 'yes'">
+                        <img src="./img/close.png" alt="close" srcset="" class="closeIcon" @click="exitChoice()">
+                        <div class="left" v-for="film in filtredFilm">
+                            <div class="affiche">
+                                <img v-bind:src="'./movieFilm/'+film.titre+'/'+film.image" alt="" srcset="">
+                            </div>
+                            <div class="info">
+                                <div class="titre">{{film.titre}}</div>
+                                <div class="acteur">
+                                    <ul>
+                                        <li>Jim Prinston</li>
+                                        <li>Jamie Foxx</li>
+                                        <li>Anita Gibbs</li>
+                                    </ul>
+                                </div>
+                                <div class="resum">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid autem quam dolores suscipit sit. Odit voluptatem eos quisquam laboriosam mollitia cumque modi rem accusantium molestiae?
+                                </div>
+                                <div class="dateSortie">
+                                    23 Décembre 2015
+                                </div>
+                            </div>
+                        </div>
+                    
+                    <div style="display:flex; align-items:center; justify-content:center;">
+                        <div class="right">
+                            <div class="principalContainRight" v-for=" disp in resverationDate ">
+                                <div class="date rightleft">
+                                    <div class="contain-date">
+                                        <div id="day-seance">{{disp.date}}</div>
+                                        <!-- <div id="date-seance">03/05</div> -->
+                                    </div> 
+                                </div>
+                                <div class="hourNformat rightright" v-for=" (dispos,index) in reservationDispo " v-if="disp.date == dispos.date && disp.film == dispos.film">
+                                    <div class="contain-HNF" :id="'HNF_seance_'+dispos.film+'_'+index">
+                                        
+                                        <label v-bind:for="'seance_'+dispos.film+'_'+index" class="hourFormat" @click="timeReserved('HNF_seance_'+dispos.film+'_'+index)">
+                                            <div id="hour">{{dispos.heure}}</div>
+                                            <div id="format">{{dispos.format}}</div>
+                                        </label>
+                                        <input type="checkbox" name="seance" v-bind:id="'seance_'+dispos.film+'_'+index" :value="disp.date+'_'+dispos.heure" v-model="choiceSeance" class="timeReserved" >
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                        <div class="bottom">
+                            <input type="submit" value="Valider Reservation" @click="reserver()">
+                        </div>
+                    </div>
+                    <div class="filmToReserve" >
+                        <div class="containerSerie containerFilm">
+                            <div v-for="film in oneFilm" class="containerFilmBis">
+                                <div class="afficheSerie" @click="choiceFilm(film.titre)">
+                                    <div class="imgAffiche">
+                                        <img v-bind:src="'./movieFilm/'+film.titre+'/'+film.image" alt="" srcset="">
+                                    </div>
+                                    <div class="nameSerie">{{film.titre}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="center">
-                <div class="center-top" v-if="choose == 'yes'">
-                    <img src="./img/close.png" alt="close" srcset="" class="closeIcon" @click="exitChoice()">
-                    <div class="left" v-for="film in filtredFilm">
-                        <div class="affiche">
-                            <img v-bind:src="'./movieFilm/'+film.titre+'/'+film.image" alt="" srcset="">
-                        </div>
-                        <div class="info">
-                            <div class="titre">{{film.titre}}</div>
-                            <div class="acteur">
-                                <ul>
-                                    <li>Jim Prinston</li>
-                                    <li>Jamie Foxx</li>
-                                    <li>Anita Gibbs</li>
-                                </ul>
-                            </div>
-                            <div class="resum">
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid autem quam dolores suscipit sit. Odit voluptatem eos quisquam laboriosam mollitia cumque modi rem accusantium molestiae?
-                            </div>
-                            <div class="dateSortie">
-                                23 Décembre 2015
-                            </div>
-                        </div>
-                    </div>
-                
-                <div style="display:flex; align-items:center; justify-content:center;">
-                    <div class="right">
-                        <div class="principalContainRight" v-for=" disp in resverationDate ">
-                            <div class="date rightleft">
-                                <div class="contain-date">
-                                    <div id="day-seance">{{disp.date}}</div>
-                                    <!-- <div id="date-seance">03/05</div> -->
-                                </div> 
-                            </div>
-                            <div class="hourNformat rightright" v-for=" (dispos,index) in reservationDispo " v-if="disp.date == dispos.date && disp.film == dispos.film">
-                                <div class="contain-HNF" :id="'HNF_seance_'+dispos.film+'_'+index">
-                                    
-                                    <label v-bind:for="'seance_'+dispos.film+'_'+index" class="hourFormat" @click="timeReserved('HNF_seance_'+dispos.film+'_'+index)">
-                                        <div id="hour">{{dispos.heure}}</div>
-                                        <div id="format">{{dispos.format}}</div>
-                                    </label>
-                                    <input type="checkbox" name="seance" v-bind:id="'seance_'+dispos.film+'_'+index" :value="disp.date+'_'+dispos.heure" v-model="choiceSeance" class="timeReserved" >
-                                </div>
-                            </div>
-                        </div>
-                        
+            <div v-if="menuBar == 'mesreservations'" class="myReservation">
+
+                <div class="top">
+                    <div class="title">
+                        <h3>Mes reservations</h3>
                     </div>
                 </div>
-                    <div class="bottom">
-                        <input type="submit" value="Valider Reservation" @click="reserver()">
+                <div class="center">
+                    <div >
+                        <ul>
+                            <li class="reservationLi">
+                                <div class="afficheReserv">Affiche</div>
+                                <div class="left">Film</div>
+                                <div class="left">Genre</div>
+                                <div class="center">Réalisateur</div>
+                                <div class="right">Année</div>
+                                <div class="center">Date de reservation</div>
+                                <div class="right">Heure de reservation</div>
+                                <div class="center">Format</div>
+                                <div class="right">Salle</div>
+                            </li>
+                            <li v-for="(reservation,index) in myReservation" class="reservationLi">
+                                <div class="afficheReserv"><img :src="'./movieFilm/'+reservation.titre+'/'+reservation.image" alt="" srcset=""></div>
+                                <div class="left">{{reservation.film}}</div>
+                                <div class="left">{{reservation.genre}}</div>
+                                <div class="left">{{reservation.realisateur}}</div>
+                                <div class="left">{{reservation.annee}}</div>
+                                <div class="center" style="font-weight:bold;"><u>{{reservation.date}}</u></div>
+                                <div class="right" style="font-weight:bold;"><u>{{reservation.heure}}</u></div>
+                                <div class="left">{{reservation.format}}</div>
+                                <div class="left" style="font-weight:bold;"><u>{{reservation.salle}}</u></div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="filmToReserve" >
-                    <div class="containerSerie containerFilm">
-                        <div v-for="film in oneFilm" class="containerFilmBis">
-                            <div class="afficheSerie" @click="choiceFilm(film.titre)">
-                                <div class="imgAffiche">
-                                    <img v-bind:src="'./movieFilm/'+film.titre+'/'+film.image" alt="" srcset="">
-                                </div>
-                                <div class="nameSerie">{{film.titre}}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
+            </div>
+            <div v-if="menuBar == 'reservannle'">
+                <h1>Mes reservations annulées</h1>
             </div>
         </div>
     </div>

@@ -16,7 +16,9 @@ const Reservation = {
             resverationDate:{},
             filtredFilm:{},
             choiceSeance:[],
-            donnees:""
+            myReservation:[],
+            donnees:"",
+            menuBar:"reserver"
         }
     }, 
     computed: {
@@ -83,11 +85,24 @@ const Reservation = {
                 contentType: false,
                 processData: false,
             })
+        },
+        menuBarr(obj){
+            this.menuBar = obj;
         }
     },
     mounted(){
+        
         axios({ method: 'POST', url: 'http://localhost/ALL/Projet-GitHub/hdssflix/Backend/Action/Data/film.php'})
         .then(response => (this.allFilm = response.data));
+
+        var id = this.$root.iduser
+        console.log("reservation "+id)
+        axios.post('http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/myReservation.php', JSON.stringify({ 'userid': id }))
+        .then(response => (this.myReservation = response.data));
+/*
+        var id = this.$root.iduser
+        axios.post('http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/myReservation.php',JSON.stringify({ 'userid': id }))
+        .then(response => (this.serieRecommanded = response.data))*/
     }
 }
 
