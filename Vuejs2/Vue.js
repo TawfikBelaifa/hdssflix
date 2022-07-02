@@ -122,6 +122,22 @@ const Gestionfilm = {
     }
 }
 
+const Messenger = {
+    template: '#messenger', 
+    name: 'Messenger',
+    data: () => {
+        return {
+            
+        }
+    }, 
+    computed: {
+        
+    },
+    mounted(){
+    
+    }
+}
+
 const Preference = {
     template: '#preference', 
     name: 'Preference',
@@ -409,7 +425,8 @@ const routes = [
     {path: '/Home/OneFilm/:id', name:"OneFilm",  component: OneFilm},
     {path: '/Home/OneSerie/:id/:name', name:"OneSerie",  component: OneSerie},
     {path: '/Preference/', name:"Preference",  component: Preference},
-    {path: '/Reservation/', name:"Reservation",  component: Reservation}
+    {path: '/Reservation/', name:"Reservation",  component: Reservation},
+    {path: '/Messenger/', name:"Messenger",  component: Messenger}
 ]
 
 const router = new VueRouter({

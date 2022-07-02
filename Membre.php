@@ -21,7 +21,7 @@
             </div>
             <nav class="right">
                 <ul>
-                    <li><img id="messengerImg" src="./img/facebook-messenger.png" alt="" srcset=""></li>
+                    <router-link to="/Messenger" ><li><img id="messengerImg" src="./img/facebook-messenger.png" alt="" srcset=""></li></router-link>
                     <router-link to="/" ><li><img src="./img/search.png" alt=""></li></router-link>
                     <li ><img src="./img/redmenu.png" alt="" class="menuAffiche"></li>
                 </ul>
@@ -54,6 +54,7 @@
         include "./Composant/oneSerie.html";
         include "./Composant/preference.html";
         include "./Composant/reservation.html";
+        include "./Composant/messenger.html";
     ?>
 
 
