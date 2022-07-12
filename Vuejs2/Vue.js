@@ -127,14 +127,72 @@ const Messenger = {
     name: 'Messenger',
     data: () => {
         return {
-            
+            iduser:null,
+            idUserConv:null,
+            pseudo:"",
+            dataUser:{},
+            searchKeys:"",
+            message:"",
+            conversation:{}
         }
     }, 
     computed: {
-        
+        userSearched(){
+            return  this.dataUser.filter((user) => {
+                return user.fullname.toLowerCase().includes(this.searchKeys.toLowerCase())
+            })
+        },
+        conversationListener(){
+            return this.conversation;
+        }
+    },
+    methods:{
+        getMesgByIntervall(id, fullname){
+            axios.post('http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/getConversation.php',JSON.stringify({ 'exp': this.iduser, 'dest':this.idUserConv }))
+            .then(response => (this.conversation = response.data))
+            
+            var scrollHeight = $('.centerMsg').prop("scrollHeight")
+			$('.centerMsg').scrollTop(scrollHeight)
+
+        },
+        userToConv(id, fullname){
+            this.idUserConv = id;
+            this.pseudo = fullname;
+
+            axios.post('http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/getConversation.php',JSON.stringify({ 'exp': this.iduser, 'dest':this.idUserConv }))
+            .then(response => (this.conversation = response.data))
+
+            setInterval(this.getMesgByIntervall, 5000)
+        },
+        sendMessage(){
+            axios.post('http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/getConversation.php',JSON.stringify({ 'exp': this.iduser, 'dest':this.idUserConv }))
+            .then(response => (this.conversation = response.data))
+
+            $.ajax({
+                url : 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/sendMessage.php',
+                method: "GET",
+                data: "expediteur="+this.iduser+"&destinateur="+this.idUserConv+"&messageSender="+this.message,
+                datatype: "json",
+                cache: false,
+                contentType: false,
+                processData: false,
+            })
+            
+            $("#messageSender").val("")
+            this.message=""
+
+
+        }
     },
     mounted(){
-    
+        this.iduser = this.$root.iduser
+
+        axios({ method: 'POST', url: 'http://localhost/all/Projet-GitHub/hdssflix/Backend/Action/Data/allUser.php'})
+        .then(response => (this.dataUser = response.data));
+
+        setTimeout(function(){
+            var scrollHeight = $('.mM-right').prop("scrollHeight")
+            $('.mM-right').scrollTop(scrollHeight)}, 1000);
     }
 }
 

@@ -3,7 +3,12 @@
         <div class="messengerboxbis">
             <div class="left">
                 <div class="top">
-                    <input type="text" id="serachUserMsg" placeholder="Rechercher">
+                    <input type="text" id="serachUserMsg" placeholder="Rechercher" v-model="searchKeys">
+                    <div class="btmLeft" v-if="searchKeys != ''">
+                        <ul>
+                            <li v-for="user in userSearched" @click="userToConv(user.id+'', user.fullname+'')"> {{user.fullname}}</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="bottom">
 
@@ -20,16 +25,21 @@
             </div>
             <div class="right">
                 <div class="topUser">
-                    <div class="userName">TAWFIK BELAIFA</div>
-                    <div class="removerConv">sup</div>
+                    <div class="userName" v-if="pseudo != ''">{{pseudo}}</div>
+                    <div class="removerConv" v-if="pseudo != ''">sup</div>
                 </div>
-                <div class="centerMsg"></div>
+                <div class="centerMsg">
+                    <div v-for="convsationByDest in conversationListener">
+                        <div class="destinataire" id="destinataire" v-if="convsationByDest.expediteur != iduser">{{convsationByDest.message}}</div>
+                        <div class="expediteur" id="expediteur" v-if="convsationByDest.expediteur == iduser">{{convsationByDest.message}}</div>
+                    </div>
+                </div>
                 <div class="bottomSender">
                     <div class="textSend">
-                        <textarea name="" id="" placeholder="Envoyer un méssage"></textarea>
+                        <textarea name="" id="messageSender" placeholder="Envoyer un méssage" v-model="message"></textarea>
                     </div>
                     <div class="btnSender">
-                        <button id="btnSender">Envoyer</button>
+                        <button id="btnSender" @click="sendMessage()">Envoyer</button>
                     </div>
                 </div>
             </div>
